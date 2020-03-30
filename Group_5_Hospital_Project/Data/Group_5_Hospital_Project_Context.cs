@@ -52,6 +52,7 @@ namespace Group_5_Hospital_Project.Data
         }
 
         //public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.whateveryourmodel> Pets { get; set; }
-
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Staff_Bios> Staff_Bios { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Feedback_Forms> Feedback_Forms { get; set; }
     }
 }

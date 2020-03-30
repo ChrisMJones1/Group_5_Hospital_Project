@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Group_5_Hospital_Project.Models;
+using Group_5_Hospital_Project.Data;
 
 namespace Group_5_Hospital_Project.Controllers
 {
