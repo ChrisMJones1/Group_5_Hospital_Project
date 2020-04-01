@@ -189,6 +189,10 @@
     <Compile Include="Migrations\202004010000296_donor1.designer.cs">
       <DependentUpon>202004010000296_donor1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004011824435_new.cs" />
+    <Compile Include="Migrations\202004011824435_new.designer.cs">
+      <DependentUpon>202004011824435_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
@@ -380,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004010000296_donor1.resx">
       <DependentUpon>202004010000296_donor1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011824435_new.resx">
+      <DependentUpon>202004011824435_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

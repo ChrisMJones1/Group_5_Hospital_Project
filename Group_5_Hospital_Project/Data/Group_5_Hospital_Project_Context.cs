@@ -57,5 +57,7 @@ namespace Group_5_Hospital_Project.Data
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Career_Candidate> Career_Candidates { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Career_Job> Career_Jobs { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Donation> Donations { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.News> News { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Find_Doctor> Find_Doctor { get; set; }
     }
 }
