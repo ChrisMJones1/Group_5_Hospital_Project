@@ -54,10 +54,11 @@ namespace Group_5_Hospital_Project.Data
         //public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.whateveryourmodel> Pets { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Staff_Bios> Staff_Bios { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Feedback_Forms> Feedback_Forms { get; set; }
-        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Career_Candidate> Career_Candidates { get; set; }
-        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Career_Job> Career_Jobs { get; set; }
-        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Donation> Donations { get; set; }
-        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.News> News { get; set; }
-        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Find_Doctor> Find_Doctor { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Subscriber> Subscribers { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Newsletter> Newsletters { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Alert> Alerts { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Page> Pages { get; set; }
+
+
     }
 }
