@@ -179,8 +179,19 @@
     <Compile Include="Migrations\202003301531291_InitialCreate.designer.cs">
       <DependentUpon>202003301531291_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003312351373_career1.cs" />
+    <Compile Include="Migrations\202003312351373_career1.designer.cs">
+      <DependentUpon>202003312351373_career1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004010000296_donor1.cs" />
+    <Compile Include="Migrations\202004010000296_donor1.designer.cs">
+      <DependentUpon>202004010000296_donor1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Career_Candidate.cs" />
+    <Compile Include="Models\Career_Jobs.cs" />
+    <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Feedback_Forms.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -264,6 +275,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003301531291_InitialCreate.resx">
       <DependentUpon>202003301531291_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003312351373_career1.resx">
+      <DependentUpon>202003312351373_career1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010000296_donor1.resx">
+      <DependentUpon>202004010000296_donor1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
