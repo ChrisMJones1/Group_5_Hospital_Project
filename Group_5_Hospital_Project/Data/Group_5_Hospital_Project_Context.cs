@@ -61,5 +61,7 @@ namespace Group_5_Hospital_Project.Data
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Newsletter> Newsletter { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Page> Page { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Subscriber> Subscriber { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Find_Doctor> Find_Doctor { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.News> News { get; set; }
     }
 }

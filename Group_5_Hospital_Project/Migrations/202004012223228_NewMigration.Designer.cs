@@ -7,13 +7,13 @@ namespace Group_5_Hospital_Project.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class _jasonmodels : IMigrationMetadata
+    public sealed partial class NewMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_jasonmodels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NewMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004011933273__jasonmodels"; }
+            get { return "202004012223228_NewMigration"; }
         }
         
         string IMigrationMetadata.Source
