@@ -193,8 +193,10 @@
     <Compile Include="Models\Career_Jobs.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Feedback_Forms.cs" />
+    <Compile Include="Models\Find_Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
