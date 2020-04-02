@@ -203,7 +203,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Newsletter.cs" />
-    <Compile Include="Controllers\NewsletterController.cs" />
+    <Compile Include="Models\NewsletterController.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
     <Compile Include="Models\Subscriber.cs" />
