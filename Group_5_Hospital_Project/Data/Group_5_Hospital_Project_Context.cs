@@ -30,6 +30,8 @@ namespace Group_5_Hospital_Project.Data
         //tiny int 1 = guest, 2 = patient, 3 = staff, 4 = admin 
         public int Permission { get; set; }
 
+        public virtual ICollection<Volunteer> Volunteers { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
     }
 
     //PetGroomingContext class has been adjusted to become a subclass of IdentityDbContext instead of DbContext
@@ -63,5 +65,7 @@ namespace Group_5_Hospital_Project.Data
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Subscriber> Subscriber { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Find_Doctor> Find_Doctor { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.News> News { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Appointment> Appointments { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Volunteer> Volunteers { get; set; }
     }
 }

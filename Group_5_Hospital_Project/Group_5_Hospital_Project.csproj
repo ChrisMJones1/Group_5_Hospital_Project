@@ -185,9 +185,14 @@
     <Compile Include="Migrations\202004012223228_NewMigration.designer.cs">
       <DependentUpon>202004012223228_NewMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004020037483_tims_models.cs" />
+    <Compile Include="Migrations\202004020037483_tims_models.designer.cs">
+      <DependentUpon>202004020037483_tims_models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
     <Compile Include="Models\Donation.cs" />
@@ -200,6 +205,7 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
     <Compile Include="Models\Subscriber.cs" />
+    <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -389,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004012223228_NewMigration.resx">
       <DependentUpon>202004012223228_NewMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020037483_tims_models.resx">
+      <DependentUpon>202004020037483_tims_models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
