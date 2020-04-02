@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Data\Group_5_Hospital_Project_Context.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Newsletter.cs" />
+    <Compile Include="Models\NewsletterController.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
     <Compile Include="Models\Subscriber.cs" />
@@ -374,6 +376,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Alert\List.cshtml" />
+    <Content Include="Views\Alert\New.cshtml" />
+    <Content Include="Views\Alert\Show.cshtml" />
+    <Content Include="Views\Alert\Edit.cshtml" />
+    <Content Include="Views\Alert\Delete.cshtml" />
+    <Content Include="Views\Newsletter\SendEmail.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
