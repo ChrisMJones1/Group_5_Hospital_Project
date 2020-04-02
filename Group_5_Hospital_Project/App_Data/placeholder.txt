@@ -1,0 +1,1 @@
+﻿A simple placeholder file to keep the App_Data folder in the repository while ignoring the .mdf files

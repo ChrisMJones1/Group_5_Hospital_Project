@@ -179,24 +179,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202003301531291_InitialCreate.cs" />
-    <Compile Include="Migrations\202003301531291_InitialCreate.designer.cs">
+    <Compile Include="Migrations\202003301531291_InitialCreate.Designer.cs">
       <DependentUpon>202003301531291_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003312351373_career1.cs" />
-    <Compile Include="Migrations\202003312351373_career1.designer.cs">
-      <DependentUpon>202003312351373_career1.cs</DependentUpon>
+    <Compile Include="Migrations\202004012223228_NewMigration.cs" />
+    <Compile Include="Migrations\202004012223228_NewMigration.designer.cs">
+      <DependentUpon>202004012223228_NewMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004010000296_donor1.cs" />
-    <Compile Include="Migrations\202004010000296_donor1.designer.cs">
-      <DependentUpon>202004010000296_donor1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004011933273__jasonmodels.cs" />
-    <Compile Include="Migrations\202004011933273__jasonmodels.designer.cs">
-      <DependentUpon>202004011933273__jasonmodels.cs</DependentUpon>
+    <Compile Include="Migrations\202004020037483_tims_models.cs" />
+    <Compile Include="Migrations\202004020037483_tims_models.designer.cs">
+      <DependentUpon>202004020037483_tims_models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
     <Compile Include="Models\Donation.cs" />
@@ -210,14 +207,20 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
     <Compile Include="Models\Subscriber.cs" />
+    <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Group_5_Hospital_Project_Context-1-05-2020.mdf" />
+    <Content Include="App_Data\Group_5_Hospital_Project_Context-1-05-2020_log.ldf">
+      <DependentUpon>Group_5_Hospital_Project_Context-1-05-2020.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Group_5_Hospital_Project_Context-30-03-2020.mdf" />
     <Content Include="App_Data\Group_5_Hospital_Project_Context-30-03-2020_log.ldf">
       <DependentUpon>Group_5_Hospital_Project_Context-30-03-2020.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\placeholder.txt" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -383,31 +386,27 @@
     <Content Include="Views\Alert\Delete.cshtml" />
     <Content Include="Views\Newsletter\SendEmail.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003301531291_InitialCreate.resx">
-      <DependentUpon>202003301531291_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003312351373_career1.resx">
-      <DependentUpon>202003312351373_career1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004010000296_donor1.resx">
-      <DependentUpon>202004010000296_donor1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004011933273__jasonmodels.resx">
-      <DependentUpon>202004011933273__jasonmodels.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003301531291_InitialCreate.resx">
+      <DependentUpon>202003301531291_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004012223228_NewMigration.resx">
+      <DependentUpon>202004012223228_NewMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020037483_tims_models.resx">
+      <DependentUpon>202004020037483_tims_models.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
