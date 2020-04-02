@@ -202,7 +202,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\News.cs" />
-    <Compile Include="Models\Newsletter.cs" />
+    <Compile Include="Controllers\Newsletter.cs" />
     <Compile Include="Models\NewsletterController.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
