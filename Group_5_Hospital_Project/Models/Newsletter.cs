@@ -13,7 +13,9 @@ namespace Group_5_Hospital_Project.Models
     {
         [Key]
         public int newsletter_id { get; set; }
+        [Display(Name = "Subject")]
         public string newsletter_title { get; set; }
+        [Display(Name = "Body")]
         public string newsletter_body { get; set; }
         public ICollection<Subscriber> Subscribers { get; set; }
     }

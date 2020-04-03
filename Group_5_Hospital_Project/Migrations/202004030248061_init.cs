@@ -3,14 +3,33 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class tims_models : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
-            DropForeignKey("dbo.AspNetUsers", "Appointment_Appointment_ID", "dbo.Appointments");
-            DropForeignKey("dbo.AspNetUsers", "Volunteer_Volunteer_ID", "dbo.Volunteers");
-            DropIndex("dbo.AspNetUsers", new[] { "Appointment_Appointment_ID" });
-            DropIndex("dbo.AspNetUsers", new[] { "Volunteer_Volunteer_ID" });
+            CreateTable(
+                "dbo.Appointments",
+                c => new
+                    {
+                        Appointment_ID = c.Int(nullable: false, identity: true),
+                        Appointment_start_time = c.DateTime(nullable: false),
+                        Appointment_end_time = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Appointment_ID);
+            
+            CreateTable(
+                "dbo.Volunteers",
+                c => new
+                    {
+                        Volunteer_ID = c.Int(nullable: false, identity: true),
+                        Volunteer_name = c.String(),
+                        Volunteer_description = c.String(),
+                        Volunteer_start_time = c.DateTime(nullable: false),
+                        Volunteer_maximum_headcount = c.Int(nullable: false),
+                        Volunteer_applied_headcount = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Volunteer_ID);
+            
             CreateTable(
                 "dbo.ApplicationUserAppointments",
                 c => new
@@ -37,14 +56,12 @@
                 .Index(t => t.Volunteer_Volunteer_ID)
                 .Index(t => t.ApplicationUser_Id);
             
-            DropColumn("dbo.AspNetUsers", "Appointment_Appointment_ID");
-            DropColumn("dbo.AspNetUsers", "Volunteer_Volunteer_ID");
+            DropColumn("dbo.Subscribers", "subscriber_name");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.AspNetUsers", "Volunteer_Volunteer_ID", c => c.Int());
-            AddColumn("dbo.AspNetUsers", "Appointment_Appointment_ID", c => c.Int());
+            AddColumn("dbo.Subscribers", "subscriber_name", c => c.String());
             DropForeignKey("dbo.VolunteerApplicationUsers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.VolunteerApplicationUsers", "Volunteer_Volunteer_ID", "dbo.Volunteers");
             DropForeignKey("dbo.ApplicationUserAppointments", "Appointment_Appointment_ID", "dbo.Appointments");
@@ -55,10 +72,8 @@
             DropIndex("dbo.ApplicationUserAppointments", new[] { "ApplicationUser_Id" });
             DropTable("dbo.VolunteerApplicationUsers");
             DropTable("dbo.ApplicationUserAppointments");
-            CreateIndex("dbo.AspNetUsers", "Volunteer_Volunteer_ID");
-            CreateIndex("dbo.AspNetUsers", "Appointment_Appointment_ID");
-            AddForeignKey("dbo.AspNetUsers", "Volunteer_Volunteer_ID", "dbo.Volunteers", "Volunteer_ID");
-            AddForeignKey("dbo.AspNetUsers", "Appointment_Appointment_ID", "dbo.Appointments", "Appointment_ID");
+            DropTable("dbo.Volunteers");
+            DropTable("dbo.Appointments");
         }
     }
 }

@@ -1,0 +1,41 @@
+﻿@using Group_5_Hospital_Project.Models
+@model List<Group_5_Hospital_Project.Models.Newsletter>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Newsletter</h2>
+
+<p>
+    @Html.ActionLink("Create New", "New")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Subject
+        </th>
+        <th>
+            Body
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var newsletter in @Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => newsletter.newsletter_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => newsletter.newsletter_body)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id= newsletter.newsletter_id }) |
+            @Html.ActionLink("Details", "Show", new { id= newsletter.newsletter_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id= newsletter.newsletter_id })
+        </td>
+    </tr>
+}
+
+</table>

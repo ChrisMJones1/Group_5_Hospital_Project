@@ -174,21 +174,14 @@
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Data\Group_5_Hospital_Project_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003301531291_InitialCreate.cs" />
-    <Compile Include="Migrations\202003301531291_InitialCreate.Designer.cs">
-      <DependentUpon>202003301531291_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004012223228_NewMigration.cs" />
-    <Compile Include="Migrations\202004012223228_NewMigration.designer.cs">
-      <DependentUpon>202004012223228_NewMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004020037483_tims_models.cs" />
-    <Compile Include="Migrations\202004020037483_tims_models.designer.cs">
-      <DependentUpon>202004020037483_tims_models.cs</DependentUpon>
+    <Compile Include="Migrations\202004030248061_init.cs" />
+    <Compile Include="Migrations\202004030248061_init.designer.cs">
+      <DependentUpon>202004030248061_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -385,6 +378,16 @@
     <Content Include="Views\Alert\Edit.cshtml" />
     <Content Include="Views\Alert\Delete.cshtml" />
     <Content Include="Views\Newsletter\SendEmail.cshtml" />
+    <Content Include="Views\Newsletter\List.cshtml" />
+    <Content Include="Views\Newsletter\New.cshtml" />
+    <Content Include="Views\Newsletter\Show.cshtml" />
+    <Content Include="Views\Newsletter\Edit.cshtml" />
+    <Content Include="Views\Newsletter\Delete.cshtml" />
+    <Content Include="Views\Subscriber\List.cshtml" />
+    <Content Include="Views\Subscriber\New.cshtml" />
+    <Content Include="Views\Subscriber\Show.cshtml" />
+    <Content Include="Views\Subscriber\Edit.cshtml" />
+    <Content Include="Views\Subscriber\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -398,16 +401,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003301531291_InitialCreate.resx">
-      <DependentUpon>202003301531291_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004012223228_NewMigration.resx">
-      <DependentUpon>202004012223228_NewMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004020037483_tims_models.resx">
-      <DependentUpon>202004020037483_tims_models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004030248061_init.resx">
+      <DependentUpon>202004030248061_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

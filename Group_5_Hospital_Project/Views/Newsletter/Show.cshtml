@@ -1,0 +1,35 @@
+﻿@model Group_5_Hospital_Project.Models.Newsletter
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Show</h2>
+
+<div>
+    <h4>Newsletter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.newsletter_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newsletter_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.newsletter_body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.newsletter_body)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.newsletter_id }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
