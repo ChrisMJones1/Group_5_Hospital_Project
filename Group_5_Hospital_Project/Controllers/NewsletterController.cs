@@ -66,11 +66,7 @@ namespace Group_5_Hospital_Project.Models
             return RedirectToAction("List");
         }
 
-        // GET: Newsletter
-        public ActionResult SendEmail()
-        {
-            return View();
-        }
+        
 
         public ActionResult Delete(int id)
         {
@@ -92,6 +88,12 @@ namespace Group_5_Hospital_Project.Models
             db.SaveChanges();
 
             return RedirectToAction("List");
+        }
+
+        // GET: Newsletter
+        public ActionResult SendEmail()
+        {
+            return View();
         }
 
         [HttpPost]

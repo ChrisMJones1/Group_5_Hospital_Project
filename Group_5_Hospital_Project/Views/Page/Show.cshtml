@@ -1,0 +1,43 @@
+﻿@model Group_5_Hospital_Project.Models.Page
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Show</h2>
+
+<div>
+    <h4>Page</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.content_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.content_body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content_body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

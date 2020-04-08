@@ -174,6 +174,7 @@
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Data\Group_5_Hospital_Project_Context.cs" />
     <Compile Include="Global.asax.cs">
@@ -391,6 +392,11 @@
     <Content Include="Views\Subscriber\Show.cshtml" />
     <Content Include="Views\Subscriber\Edit.cshtml" />
     <Content Include="Views\Subscriber\Delete.cshtml" />
+    <Content Include="Views\Page\List.cshtml" />
+    <Content Include="Views\Page\New.cshtml" />
+    <Content Include="Views\Page\Show.cshtml" />
+    <Content Include="Views\Page\Edit.cshtml" />
+    <Content Include="Views\Page\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
