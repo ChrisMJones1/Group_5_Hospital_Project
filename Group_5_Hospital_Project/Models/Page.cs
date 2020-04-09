@@ -13,7 +13,11 @@ namespace Group_5_Hospital_Project.Models
     {
         [Key]
         public int id { get; set; }
+
+        [Display(Name="Content Title")]
         public string content_title { get; set; }
+
+        [Display(Name = "Content Body")]
         public string content_body { get; set; }
         public DateTime DateTime { get; set; }
 
