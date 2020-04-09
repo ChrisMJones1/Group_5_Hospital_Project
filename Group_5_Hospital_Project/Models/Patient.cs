@@ -40,7 +40,7 @@ namespace Group_5_Hospital_Project.Models
 
         
         //Represents the "many" in (one Patient to many Send Best Wishes Forms)
-        public ICollection<Patient> Send_Best_Wishes { get; set; }
+        public ICollection<Send_Best_Wishes> Send_Best_Wishes { get; set; }
 
 
 

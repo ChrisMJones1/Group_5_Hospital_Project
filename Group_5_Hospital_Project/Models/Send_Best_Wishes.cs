@@ -38,9 +38,7 @@ namespace Group_5_Hospital_Project.Models
 
 
 
-    //Represents the many in (one Patient to many Send Best Wishes Forms)        
-    public int PatientyID { get; set; }
-    [ForeignKey("PatientID")]
+    //Represents the many in (one Patient to many Send Best Wishes Forms)
     public virtual Patient Patient { get; set; }
 
 
