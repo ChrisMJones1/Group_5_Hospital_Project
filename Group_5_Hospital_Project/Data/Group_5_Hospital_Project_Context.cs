@@ -27,7 +27,7 @@ namespace Group_5_Hospital_Project.Data
             return userIdentity;
         }
 
-        //tiny int 1 = guest, 2 = patient, 3 = staff, 4 = admin 
+        //tiny int 0 = guest, 1 = patient, 2 = staff, 3 = admin 
         public int Permission { get; set; }
 
         public virtual ICollection<Volunteer> Volunteers { get; set; }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Group_5_Hospital_Project.Models.Feedback_Forms>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Feedback_Forms_Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Feedback_Forms_Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Feedback_Forms_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Feedback_Forms_Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Feedback_Forms_Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Feedback_Forms_Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Feedback_Forms_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Feedback_Forms_Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Feedback_Forms_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Feedback_Forms_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Feedback_Forms_ID })
+        </td>
+    </tr>
+}
+
+</table>

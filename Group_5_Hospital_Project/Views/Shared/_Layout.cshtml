@@ -21,11 +21,22 @@
                     <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contact</a></li>
                 </ul>
+                @{ if (!User.Identity.IsAuthenticated)
+                    {
+                        <ul class="nav navbar-nav navbar-right mr-auto">
+                            <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Register</a></li>
+                            <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+            <ul class="nav navbar-nav navbar-right mr-auto">
+                <li class="text-white nav-item">Welcome: @User.Identity.Name</li>
+                <li class="nav-item"><a href="/Account/LogOff" id="logoffLink" class="nav-link">Log off</a></li>
+            </ul>
+                    }
+                }
 
-                <ul class="nav navbar-nav navbar-right mr-auto">
-                    <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Register</a></li>
-                    <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
-                </ul>
 
             </div>
         </div>

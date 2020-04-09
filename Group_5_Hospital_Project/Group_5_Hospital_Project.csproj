@@ -170,8 +170,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UserAuthentication.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
+    <Compile Include="Controllers\Feedback_FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -397,6 +399,9 @@
     <Content Include="Views\Page\Show.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
     <Content Include="Views\Page\Delete.cshtml" />
+    <Content Include="Views\Feedback_Forms\List.cshtml" />
+    <Content Include="Views\Account\LogOff.cshtml" />
+    <Content Include="Views\Feedback_Forms\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -413,6 +418,9 @@
     <EmbeddedResource Include="Migrations\202004091309174_init.resx">
       <DependentUpon>202004091309174_init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
