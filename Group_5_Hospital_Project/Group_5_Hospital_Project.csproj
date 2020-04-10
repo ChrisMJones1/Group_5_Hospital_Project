@@ -173,18 +173,20 @@
     <Compile Include="App_Start\UserAuthentication.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
+    <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\Feedback_FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
+    <Compile Include="Controllers\VolunteersController.cs" />
     <Compile Include="Data\Group_5_Hospital_Project_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004091309174_init.cs" />
-    <Compile Include="Migrations\202004091309174_init.designer.cs">
-      <DependentUpon>202004091309174_init.cs</DependentUpon>
+    <Compile Include="Migrations\202004100428202_init.cs" />
+    <Compile Include="Migrations\202004100428202_init.designer.cs">
+      <DependentUpon>202004100428202_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -402,6 +404,16 @@
     <Content Include="Views\Feedback_Forms\List.cshtml" />
     <Content Include="Views\Account\LogOff.cshtml" />
     <Content Include="Views\Feedback_Forms\Add.cshtml" />
+    <Content Include="Views\Volunteers\Create.cshtml" />
+    <Content Include="Views\Volunteers\Delete.cshtml" />
+    <Content Include="Views\Volunteers\Details.cshtml" />
+    <Content Include="Views\Volunteers\Edit.cshtml" />
+    <Content Include="Views\Volunteers\Index.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\Delete.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -415,12 +427,12 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004091309174_init.resx">
-      <DependentUpon>202004091309174_init.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Staff_Bios\" />
+    <EmbeddedResource Include="Migrations\202004100428202_init.resx">
+      <DependentUpon>202004100428202_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
