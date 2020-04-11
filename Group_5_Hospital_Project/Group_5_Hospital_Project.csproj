@@ -197,6 +197,9 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
+    <Compile Include="Models\VIewModels\ShowPatient.cs" />
+    <Compile Include="Models\VIewModels\UpdatePatient.cs" />
+    <Compile Include="Models\VIewModels\ViewWishes.cs" />
     <Compile Include="Models\Wishes.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Slideshow.cs" />
@@ -422,6 +425,11 @@
     <Content Include="Views\Wishes\Show.cshtml" />
     <Content Include="Views\Wishes\Update.cshtml" />
     <Content Include="Views\Wishes\DeleteConfirm.cshtml" />
+    <Content Include="Views\Patient\List.cshtml" />
+    <Content Include="Views\Patient\New.cshtml" />
+    <Content Include="Views\Patient\Show.cshtml" />
+    <Content Include="Views\Patient\Update.cshtml" />
+    <Content Include="Views\Patient\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -435,7 +443,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Patient\" />
     <Folder Include="Views\Slideshow\" />
     <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>

@@ -10,7 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
 using Group_5_Hospital_Project.Models;
-//using Group_5_Hospital_Project.Models.ViewModels;
+using Group_5_Hospital_Project.Models.ViewModels;
 using System.Diagnostics;
 using System.IO;
 

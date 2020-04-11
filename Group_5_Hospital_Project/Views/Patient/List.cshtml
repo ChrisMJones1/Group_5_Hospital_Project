@@ -1,0 +1,18 @@
+﻿@using Group_5_Hospital_Project.Models
+@model List<Group_5_Hospital_Project.Models.Patient>
+
+
+@{
+
+    <div class="">
+        <a class="" href="/Patient/New">Add New Patient</a><br /><br />
+    </div>
+
+    foreach (var patient in Model)
+    {
+        <div><a href="/Patient/Show/@patient.Id">@patient.Name</a></div>
+
+
+    }
+
+}

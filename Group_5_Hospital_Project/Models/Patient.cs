@@ -38,11 +38,14 @@ namespace Group_5_Hospital_Project.Models
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
 
-        
+
         //Represents the "many" in (one Patient to many Send Best Wishes Forms)
-        public ICollection<Wishes> Wishes { get; set; }
+        // public ICollection<Wishes> Wishes { get; set; }
 
-
+        //Represents the many in (one category to many furniture products)        
+        public int WishesID { get; set; }
+        [ForeignKey("WishesID")]
+        public virtual Wishes Wishes { get; set; }
 
     }
 }

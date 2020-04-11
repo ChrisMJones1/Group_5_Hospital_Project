@@ -1,0 +1,39 @@
+﻿<!--where to pull the information from-->
+@model  List<Group_5_Hospital_Project.Models.Wishes>
+
+@{
+    ViewBag.Title = "Add";
+}
+
+
+<h2>Add Patient</h2>
+
+
+<form method="POST" action="/Patient/New">
+    <select name="WishesID" id="patientwishes">
+        @{
+            //for each form in the model display the title
+            foreach (var wishes in Model)
+            {
+
+                <option value="@wishes.Id">@wishes.Title</option>
+
+            }
+
+        }
+
+    </select>
+
+    <div>Name:<input type="text" name="patientname" id="patientname" /></div>
+    <div>Age: <input type="text" name="patientage" id="patientage" /></div>
+    <div>Diagnosis:<input type="text" name="patientdia" id="patientdia" /></div>
+    <div>Room Number:<input type="text" name="patientroom" id="patientroom" /></div>
+    <div>Phone Number:<input type="text" name="patientphone" id="patientphone" /></div>
+    <div>Email:<input type="text" name="patientemail" id="patientemail" /></div>
+    <!--<h3>Send Best Wishes Forms</h3>
+    <div>Send Best Wishes Forms:<input type="text" name="furweight" id="furweight" /></div>-->
+
+    <div><input type="submit" value="Add Patient" /></div>
+</form>
+
+<a href="/Patient/List">Back to Patient List</a>
