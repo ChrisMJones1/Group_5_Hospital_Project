@@ -1,0 +1,16 @@
+﻿@model Group_5_Hospital_Project.Models.Wishes
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show Best Wishes Form</h2>
+<div class="">
+    <a class="" href="/Wishes/List">Back to List</a>
+    <a class="" href="/Wishes/Update/@Model.Id">Update</a>
+    <a class="" href="/Wishes/DeleteConfirm/@Model.Id">Delete</a>
+</div>
+<div>
+    <div>Title : @Model.Title </div>
+    <div>Sender Name : @Model.SenderName </div>
+    <div>Message : @Model.Message </div>
+</div>

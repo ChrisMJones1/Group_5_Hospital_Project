@@ -219,14 +219,14 @@
                         Name = c.String(),
                         Age = c.Int(nullable: false),
                         Diagnosis = c.String(),
-                        RoomNumber = c.String(),
+                        RoomNumber = c.Int(nullable: false),
                         PhoneNumber = c.Int(nullable: false),
                         Email = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Send_Best_Wishes",
+                "dbo.Wishes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -234,11 +234,8 @@
                         SenderName = c.String(),
                         Status = c.String(),
                         Message = c.String(),
-                        Patient_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Patients", t => t.Patient_Id)
-                .Index(t => t.Patient_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -315,13 +312,27 @@
                 .Index(t => t.Subscriber_subscriber_id)
                 .Index(t => t.Newsletter_newsletter_id);
             
+            CreateTable(
+                "dbo.WishesPatients",
+                c => new
+                    {
+                        Wishes_Id = c.Int(nullable: false),
+                        Patient_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Wishes_Id, t.Patient_Id })
+                .ForeignKey("dbo.Wishes", t => t.Wishes_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Patients", t => t.Patient_Id, cascadeDelete: true)
+                .Index(t => t.Wishes_Id)
+                .Index(t => t.Patient_Id);
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Staff_Bios", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Send_Best_Wishes", "Patient_Id", "dbo.Patients");
+            DropForeignKey("dbo.WishesPatients", "Patient_Id", "dbo.Patients");
+            DropForeignKey("dbo.WishesPatients", "Wishes_Id", "dbo.Wishes");
             DropForeignKey("dbo.SubscriberNewsletters", "Newsletter_newsletter_id", "dbo.Newsletters");
             DropForeignKey("dbo.SubscriberNewsletters", "Subscriber_subscriber_id", "dbo.Subscribers");
             DropForeignKey("dbo.Feedback_Forms", "User_Id", "dbo.AspNetUsers");
@@ -332,6 +343,8 @@
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.ApplicationUserAppointments", "Appointment_Appointment_ID", "dbo.Appointments");
             DropForeignKey("dbo.ApplicationUserAppointments", "ApplicationUser_Id", "dbo.AspNetUsers");
+            DropIndex("dbo.WishesPatients", new[] { "Patient_Id" });
+            DropIndex("dbo.WishesPatients", new[] { "Wishes_Id" });
             DropIndex("dbo.SubscriberNewsletters", new[] { "Newsletter_newsletter_id" });
             DropIndex("dbo.SubscriberNewsletters", new[] { "Subscriber_subscriber_id" });
             DropIndex("dbo.VolunteerApplicationUsers", new[] { "ApplicationUser_Id" });
@@ -340,20 +353,20 @@
             DropIndex("dbo.ApplicationUserAppointments", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.Staff_Bios", new[] { "User_Id" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Send_Best_Wishes", new[] { "Patient_Id" });
             DropIndex("dbo.Feedback_Forms", new[] { "User_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropTable("dbo.WishesPatients");
             DropTable("dbo.SubscriberNewsletters");
             DropTable("dbo.VolunteerApplicationUsers");
             DropTable("dbo.ApplicationUserAppointments");
             DropTable("dbo.Staff_Bios");
             DropTable("dbo.Slideshows");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Send_Best_Wishes");
+            DropTable("dbo.Wishes");
             DropTable("dbo.Patients");
             DropTable("dbo.Pages");
             DropTable("dbo.Subscribers");

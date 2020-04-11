@@ -68,7 +68,7 @@ namespace Group_5_Hospital_Project.Data
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Appointment> Appointments { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Volunteer> Volunteers { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Patient> Patients { get; set; }
-        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Send_Best_Wishes> Send_Best_Wishes { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Wishes> Send_Best_Wishes { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Slideshow> Slideshows { get; set; }
 
     }

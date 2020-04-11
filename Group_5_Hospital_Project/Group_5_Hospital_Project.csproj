@@ -179,7 +179,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\Patient.cs" />
-    <Compile Include="Controllers\SendBestWishes.cs" />
+    <Compile Include="Controllers\WishesController.cs" />
     <Compile Include="Controllers\Slideshow.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Controllers\VolunteersController.cs" />
@@ -187,9 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004100428202_init.cs" />
-    <Compile Include="Migrations\202004100428202_init.designer.cs">
-      <DependentUpon>202004100428202_init.cs</DependentUpon>
+    <Compile Include="Migrations\202004110304258_init.cs" />
+    <Compile Include="Migrations\202004110304258_init.designer.cs">
+      <DependentUpon>202004110304258_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -197,8 +197,8 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
+    <Compile Include="Models\Wishes.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Send_Best_Wishes.cs" />
     <Compile Include="Models\Slideshow.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Feedback_Forms.cs" />
@@ -417,6 +417,11 @@
     <Content Include="Views\Appointments\Details.cshtml" />
     <Content Include="Views\Appointments\Edit.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\Wishes\List.cshtml" />
+    <Content Include="Views\Wishes\New.cshtml" />
+    <Content Include="Views\Wishes\Show.cshtml" />
+    <Content Include="Views\Wishes\Update.cshtml" />
+    <Content Include="Views\Wishes\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -431,13 +436,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Patient\" />
-    <Folder Include="Views\SendBestWishes\" />
     <Folder Include="Views\Slideshow\" />
     <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004100428202_init.resx">
-      <DependentUpon>202004100428202_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004110304258_init.resx">
+      <DependentUpon>202004110304258_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
