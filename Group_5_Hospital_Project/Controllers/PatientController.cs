@@ -61,7 +61,7 @@ namespace Group_5_Hospital_Project.Controllers
         public ActionResult New()
         {
 
-            List<Wishes> wishes = db.Send_Best_Wishes.SqlQuery("SELECT * FROM Wishes").ToList();
+            List<Wishes> wishes = db.Wishes.SqlQuery("SELECT * FROM Wishes").ToList();
 
             return View(wishes);
         }
@@ -101,7 +101,7 @@ namespace Group_5_Hospital_Project.Controllers
         {
             //info about the patient
             Patient selectedpatient = db.Patients.SqlQuery("select * from patients WHERE id = @id", new SqlParameter("@id", id)).FirstOrDefault();
-            List<Wishes> wishes = db.Send_Best_Wishes.SqlQuery("SELECT * FROM Wishes").ToList();
+            List<Wishes> wishes = db.Wishes.SqlQuery("SELECT * FROM Wishes").ToList();
 
 
             UpdatePatient UpdatePatientViewModel = new UpdatePatient();

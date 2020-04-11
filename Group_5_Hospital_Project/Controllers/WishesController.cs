@@ -54,7 +54,7 @@ namespace Group_5_Hospital_Project.Controllers
 
         public ActionResult New()
         {
-            List<Wishes> wishes = db.Send_Best_Wishes.SqlQuery("SELECT * FROM wishes").ToList();
+            List<Wishes> wishes = db.Wishes.SqlQuery("SELECT * FROM wishes").ToList();
 
             return View(wishes);
         }
@@ -68,7 +68,7 @@ namespace Group_5_Hospital_Project.Controllers
         public ActionResult List()
         {
             //going to the database and getting the SBW
-            List<Wishes> wishes = db.Send_Best_Wishes.SqlQuery("SELECT * FROM wishes").ToList();
+            List<Wishes> wishes = db.Wishes.SqlQuery("SELECT * FROM wishes").ToList();
 
             return View(wishes);
             //provides a list of SBW
@@ -79,7 +79,7 @@ namespace Group_5_Hospital_Project.Controllers
         {
             string query = "SELECT * FROM wishes where id = @id";
             var parameter = new SqlParameter("@id", id);
-            Wishes selectedwishes = db.Send_Best_Wishes.SqlQuery(query, parameter).FirstOrDefault();
+            Wishes selectedwishes = db.Wishes.SqlQuery(query, parameter).FirstOrDefault();
 
             return View(selectedwishes);
         }
@@ -92,7 +92,7 @@ namespace Group_5_Hospital_Project.Controllers
         {
             string query = "select * from wishes where id=@id";
             SqlParameter param = new SqlParameter("@id", id);
-            Wishes selectedwishes = db.Send_Best_Wishes.SqlQuery(query, param).FirstOrDefault();
+            Wishes selectedwishes = db.Wishes.SqlQuery(query, param).FirstOrDefault();
             return View(selectedwishes);
         }
 
