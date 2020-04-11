@@ -16,7 +16,7 @@ using System.IO;
 
 namespace Group_5_Hospital_Project.Controllers
 {
-    public class Patient : Controller
+    public class PatientController : Controller
     {
 
 
@@ -61,13 +61,13 @@ namespace Group_5_Hospital_Project.Controllers
         public ActionResult New()
         {
 
-            List<Wishes> category = db.Send_Best_Wishes.SqlQuery("SELECT * FROM Wishes").ToList();
+            List<Wishes> wishes = db.Send_Best_Wishes.SqlQuery("SELECT * FROM Wishes").ToList();
 
-            return View(category);
+            return View(wishes);
         }
 
 
-        // GET: Furniture
+        // GET: Patient
 
         public ActionResult List()
         {
