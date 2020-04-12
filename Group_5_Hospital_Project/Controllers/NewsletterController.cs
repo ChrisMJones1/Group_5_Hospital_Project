@@ -24,6 +24,20 @@ namespace Group_5_Hospital_Project.Models
             return View(db.Newsletter.Where(n => n.newsletter_title.Contains(search) || n.newsletter_body.Contains(search) || search == null).ToList().ToPagedList(i ?? 1, 10));
         }
 
+        //adding subscribers to newsletter form of subscribers id =?
+
+        public ActionResult NewsletterSubscriber(int id)
+        {
+            string query = "select * from Newsletter inner join SubscriberNewsletter on " +
+                "Newsletter.newsletter_id = SubscriberNewsletter.Newsletter_NewsletterID " +
+                "where Subscriber_SubscriberID = @id";
+
+            SqlParameter param = new SqlParameter("@id", id);
+            List<Subscriber> NewsletterSubscribers = db.Subscriber.SqlQuery(query, param).ToList();
+
+            return View();
+        }
+
 
         //newsletter/new
         public ActionResult New()

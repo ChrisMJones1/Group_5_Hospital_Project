@@ -208,6 +208,7 @@
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
     <Compile Include="Models\VIewModels\ShowPatient.cs" />
+    <Compile Include="Models\VIewModels\SubscriberNewsletterViewModel.cs" />
     <Compile Include="Models\VIewModels\UpdatePatient.cs" />
     <Compile Include="Models\VIewModels\ViewWishes.cs" />
     <Compile Include="Models\Wishes.cs" />
