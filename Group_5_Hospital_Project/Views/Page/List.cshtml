@@ -1,46 +1,68 @@
 ﻿@using Group_5_Hospital_Project.Models
-@model List<Group_5_Hospital_Project.Models.Page>
+@model IPagedList<Group_5_Hospital_Project.Models.Page>
 
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using PagedList.Mvc;
+@using PagedList;
+
 <h2>List</h2>
 
 <p>
     @Html.ActionLink("Create New", "New")
+
+    @using (Html.BeginForm("List", "Page", FormMethod.Get))
+    {
+        @Html.TextBox("search", null, new { @class = "form-control mr-sm-2 d-inline search-field", @placeholder = "Press enter to Search!" })
+    }
 </p>
 <table class="table">
-    <tr>
-        <th>
-            Content Title
-        </th>
-        <th>
-            Content Body
-        </th>
-        <th>
-            Date Create
-        </th>
-    </tr>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().content_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().content_body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().DateTime)
+            </th>
+        </tr>
+    </thead>
 
-@foreach (var page in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => page.content_title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => page.content_body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => page.DateTime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id= page.id }) |
-            @Html.ActionLink("Details", "Show", new { id= page.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id= page.id })
-        </td>
-    </tr>
-}
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td>No Match found.</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var page in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => page.content_title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => page.content_body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => page.DateTime)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = page.id }) |
+                    @Html.ActionLink("Details", "Show", new { id = page.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = page.id })
+                </td>
+            </tr>
+        }
+    }
 
 </table>
+
+@Html.PagedListPager(Model, i => Url.Action("List", "Page", new { i, search = Request.QueryString["search"] }))

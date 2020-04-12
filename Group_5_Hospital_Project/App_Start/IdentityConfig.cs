@@ -12,6 +12,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Group_5_Hospital_Project.Models;
 using Group_5_Hospital_Project.Data;
+using System.Security.Principal;
+
 
 namespace Group_5_Hospital_Project
 {
@@ -105,6 +107,21 @@ namespace Group_5_Hospital_Project
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+    }
+    public static class IdentityExtensions
+    {
+        public static int Permission(this IIdentity identity)
+        {
+            try
+            {
+                return Convert.ToInt32(((ClaimsIdentity)identity).FindFirst("Permission").Value);
+            }
+            catch
+            {
+                return 0;
+            }
+            
         }
     }
 }

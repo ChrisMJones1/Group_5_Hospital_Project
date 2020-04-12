@@ -16,7 +16,7 @@ namespace Group_5_Hospital_Project.Models
         public string Staff_Bio_Name { get; set; }
         public string Staff_Bio_Text { get; set; }
         public string Staff_Bio_Image_Path { get; set; }
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
     }
 }

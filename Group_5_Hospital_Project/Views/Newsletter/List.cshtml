@@ -1,41 +1,64 @@
 ﻿@using Group_5_Hospital_Project.Models
-@model List<Group_5_Hospital_Project.Models.Newsletter>
+@model IPagedList<Group_5_Hospital_Project.Models.Newsletter>
 
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using PagedList.Mvc;
+@using PagedList;
+
+
 <h2>Newsletter</h2>
 
 <p>
     @Html.ActionLink("Create New", "New")
+
+    @using (Html.BeginForm("List", "Newsletter", FormMethod.Get))
+    {
+        @Html.TextBox("search", null, new { @class = "form-control mr-sm-2 d-inline search-field", @placeholder = "Press enter to Search!" })
+    }
 </p>
 <table class="table">
-    <tr>
-        <th>
-            Subject
-        </th>
-        <th>
-            Body
-        </th>
-        <th></th>
-    </tr>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().newsletter_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().newsletter_body)
+            </th>
+        </tr>
+    </thead>
 
-@foreach (var newsletter in @Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => newsletter.newsletter_title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => newsletter.newsletter_body)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id= newsletter.newsletter_id }) |
-            @Html.ActionLink("Details", "Show", new { id= newsletter.newsletter_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id= newsletter.newsletter_id })
-        </td>
-    </tr>
-}
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td>No Match found.</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var newsletter in @Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => newsletter.newsletter_title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => newsletter.newsletter_body)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = newsletter.newsletter_id }) |
+                    @Html.ActionLink("Details", "Show", new { id = newsletter.newsletter_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = newsletter.newsletter_id }) |
+                    @Html.ActionLink("Send Email", "SendEmail", new { id = newsletter.newsletter_id })
+                </td>
+            </tr>
+        }
+    }
 
 </table>
+
+@Html.PagedListPager(Model, i => Url.Action("List", "Newsletter", new { i, search = Request.QueryString["search"] }))

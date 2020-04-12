@@ -9,7 +9,8 @@ using Group_5_Hospital_Project.Data;
 
 namespace Group_5_Hospital_Project.Models
 {
-    public class Send_Best_Wishes {
+    public class Wishes
+    {
 
 
         /*
@@ -27,20 +28,21 @@ namespace Group_5_Hospital_Project.Models
         - Form Status
         - Form Message
 
-        */ 
-        
-    [Key]
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string SenderName { get; set; }
-    public string Status { get; set; }
-    public string Message { get; set; }
+        */
+
+        [Key]
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string SenderName { get; set; }
+        public string Status { get; set; }
+        public string Message { get; set; }
 
 
 
-    //Represents the many in (one Patient to many Send Best Wishes Forms)
-    public virtual Patient Patient { get; set; }
+        //Represents the many in (one Patient to many Send Best Wishes Forms)
+        //public virtual Patient Patient { get; set; }
 
+        public ICollection<Patient> Patient { get; set; }
 
 
     }

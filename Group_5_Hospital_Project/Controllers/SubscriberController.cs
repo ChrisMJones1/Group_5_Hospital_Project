@@ -7,6 +7,9 @@ using System.Web;
 using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
 using Group_5_Hospital_Project.Models;
+using PagedList.Mvc;
+using PagedList;
+
 
 namespace Group_5_Hospital_Project.Controllers
 {
@@ -15,10 +18,10 @@ namespace Group_5_Hospital_Project.Controllers
 
         private Group_5_Hospital_Project_Context db = new Group_5_Hospital_Project_Context();
         // GET: Subscriber
-        public ActionResult List()
+        public ActionResult List(string search, int? i)
         {
-            List<Subscriber> subscribers = db.Subscriber.SqlQuery("select * from Subscribers").ToList();
-            return View(subscribers);
+            return View(db.Subscriber.Where(s => s.subscriber_email.Contains(search) || search == null).ToList().ToPagedList(i ?? 1, 10));
+
         }
 
         public ActionResult New()

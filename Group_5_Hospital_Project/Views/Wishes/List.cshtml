@@ -1,0 +1,52 @@
+﻿@using Group_5_Hospital_Project.Models
+@model List<Group_5_Hospital_Project.Models.Wishes>
+
+
+@{
+
+    <h2>Get Well Soon Messages</h2>
+
+
+    <div class="">
+        <a class="" href="/Wishes/New">Add a Get Well Message</a><br /><br />
+    </div>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Message
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.ActionLink("Show", "Show", new { id = item.Id }) |
+                    @Html.ActionLink("Update", "Update", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+
+
+
+
+
+}

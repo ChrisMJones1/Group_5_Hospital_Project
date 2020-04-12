@@ -24,6 +24,7 @@ namespace Group_5_Hospital_Project.Data
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim("Permission", (this.Permission + "" ?? "-1")));
             return userIdentity;
         }
 
@@ -53,7 +54,7 @@ namespace Group_5_Hospital_Project.Data
             return new Group_5_Hospital_Project_Context();
         }
 
-        //public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.whateveryourmodel> Pets { get; set; }
+        //public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.whateveryourmodel>  { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Staff_Bios> Staff_Bios { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Feedback_Forms> Feedback_Forms { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Career_Candidate> Career_Candidates { get; set; }
@@ -68,7 +69,7 @@ namespace Group_5_Hospital_Project.Data
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Appointment> Appointments { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Volunteer> Volunteers { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Patient> Patients { get; set; }
-        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Send_Best_Wishes> Send_Best_Wishes { get; set; }
+        public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Wishes> Wishes { get; set; }
         public System.Data.Entity.DbSet<Group_5_Hospital_Project.Models.Slideshow> Slideshows { get; set; }
 
     }

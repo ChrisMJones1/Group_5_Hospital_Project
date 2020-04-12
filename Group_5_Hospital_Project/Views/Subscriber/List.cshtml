@@ -1,35 +1,57 @@
 ﻿@using Group_5_Hospital_Project.Models
-@model List<Group_5_Hospital_Project.Models.Subscriber>
+@model IPagedList<Group_5_Hospital_Project.Models.Subscriber>
 
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using PagedList.Mvc;
+@using PagedList;
+
 <h2>List</h2>
 
 <p>
     @Html.ActionLink("Create New", "New")
+
+    @using (Html.BeginForm("List", "Subscriber", FormMethod.Get))
+    {
+        @Html.TextBox("search", null, new { @class = "form-control mr-sm-2 d-inline search-field", @placeholder = "Press enter to Search!" })
+    }
 </p>
 <table class="table">
-    <tr>
-        <th>
-            Subscriber Email
-        </th>
-        <th></th>
-    </tr>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().subscriber_email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.subscriber_email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.subscriber_id }) |
-            @Html.ActionLink("Details", "Show", new { id=item.subscriber_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.subscriber_id })
-        </td>
-    </tr>
-}
-
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td>No Match found.</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.subscriber_email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.subscriber_id }) |
+                    @Html.ActionLink("Details", "Show", new { id = item.subscriber_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.subscriber_id })
+                </td>
+            </tr>
+        }
+    }
 </table>
+
+
+@Html.PagedListPager(Model, i => Url.Action("List", "Subscriber", new { i, search = Request.QueryString["search"] }))
