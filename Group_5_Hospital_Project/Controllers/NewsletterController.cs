@@ -9,6 +9,8 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
+using PagedList.Mvc;
+using PagedList;
 
 namespace Group_5_Hospital_Project.Models
 {
@@ -17,10 +19,9 @@ namespace Group_5_Hospital_Project.Models
         private Group_5_Hospital_Project_Context db = new Group_5_Hospital_Project_Context();
 
         //newsletter/List
-        public ActionResult List()
+        public ActionResult List(string search, int? i)
         {
-            List<Newsletter> newsletters = db.Newsletter.SqlQuery("select * from Newsletters").ToList();
-            return View(newsletters);
+            return View(db.Newsletter.Where(n => n.newsletter_title.Contains(search) || n.newsletter_body.Contains(search) || search == null).ToList().ToPagedList(i ?? 1, 10));
         }
 
 

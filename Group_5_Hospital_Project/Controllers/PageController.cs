@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
 using Group_5_Hospital_Project.Models;
+using PagedList.Mvc;
+using PagedList;
 
 namespace Group_5_Hospital_Project.Controllers
 {
@@ -16,10 +18,10 @@ namespace Group_5_Hospital_Project.Controllers
 
         // GET: Page
         //Page/List
-        public ActionResult List()
+        public ActionResult List(string search, int? i)
         {
-            List<Page> pages = db.Page.SqlQuery("select * from Pages").ToList();
-            return View(pages);
+            return View(db.Page.Where(p => p.content_title.Contains(search) || p.content_body.Contains(search) || search == null).ToList().ToPagedList(i ?? 1, 10));
+
         }
 
         public ActionResult New()

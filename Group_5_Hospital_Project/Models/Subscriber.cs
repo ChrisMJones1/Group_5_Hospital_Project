@@ -13,6 +13,7 @@ namespace Group_5_Hospital_Project.Models
     {
         [Key]
         public int subscriber_id { get; set; }
+        [Display(Name = "Subscriber Email")]
         public string subscriber_email { get; set; }
         public ICollection<Newsletter> Newsletters { get; set; }
     }
