@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202004111713517_christine_fix_1.designer.cs">
       <DependentUpon>202004111713517_christine_fix_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004122229597_addSubscriberNewsletterViewModel.cs" />
+    <Compile Include="Migrations\202004122229597_addSubscriberNewsletterViewModel.designer.cs">
+      <DependentUpon>202004122229597_addSubscriberNewsletterViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alert.cs" />
@@ -465,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004111713517_christine_fix_1.resx">
       <DependentUpon>202004111713517_christine_fix_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004122229597_addSubscriberNewsletterViewModel.resx">
+      <DependentUpon>202004122229597_addSubscriberNewsletterViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
