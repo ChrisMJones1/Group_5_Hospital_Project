@@ -17,7 +17,7 @@ namespace Group_5_Hospital_Project.Models
         public string Feedback_Forms_Comment { get; set; }
         public string Feedback_Forms_Email { get; set; }
         public DateTime Feedback_Forms_Date { get; set; }
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
     }
 }

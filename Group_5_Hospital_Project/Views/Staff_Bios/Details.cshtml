@@ -1,0 +1,72 @@
+﻿@model Group_5_Hospital_Project.Models.Staff_Bios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Staff Bio Details</h2>
+
+<div>
+
+    <div class="container border border-primary text-center">
+        <div class="h4">Bio</div>
+
+        @if (User.Identity.Permission() == 3) //if admin, display extra info
+        {
+
+            <div class="row border border-primary">
+                <div class="col">
+                    <div class="container h5">Bio ID</div>
+                    @Html.DisplayFor(model => model.Staff_Bio_ID)
+                </div>
+                <div class="col">
+                    <div class="container h5">Username</div>
+                    @Html.DisplayFor(model => model.User.UserName)
+                </div>
+
+                <div class="col">
+                    <div class="container h5">User ID</div>
+                    @Html.DisplayFor(model => model.User.Id)
+                </div>
+            </div>
+            <div class="row border border-primary">
+                <div class="col">
+                    <div class="container h5">Bio Picture path</div>
+                    @Html.DisplayFor(model => model.Staff_Bio_Image_Path)
+
+                </div>
+
+            </div>
+
+        }
+
+        <div class="row border border-primary">
+            <div class="col">
+                <div class="container h5">Name</div>
+                @Html.DisplayFor(model => model.Staff_Bio_Name)
+            </div>
+
+            <div class="col">
+                <div class="container h5">Text</div>
+                @Html.DisplayFor(model => model.Staff_Bio_Text)
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="container h5">Current Picture</div>
+                <img src="~/Content/Bio_Images/@Model.Staff_Bio_Image_Path" alt="Picture of @Model.Staff_Bio_Name" class="img-fluid" />
+            </div>
+        </div>
+
+    </div>
+
+
+@if (User.Identity.Permission() == 3 || User.Equals(Model.User)) //if admin or the staff member who created this bio, show the edit link
+{
+<div>@Html.ActionLink("Edit", "Edit", new { id = Model.Staff_Bio_ID }, new {@class="btn btn-warning" })</div>
+}
+<div>@Html.ActionLink("Back to List", "Index", "", new {@class="btn btn-primary" })</div>
+
