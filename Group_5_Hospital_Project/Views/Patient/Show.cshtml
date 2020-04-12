@@ -5,21 +5,23 @@
 }
 
 <h2>Show Patient</h2>
-<div class="navbar">
-    <a class="navlink" href="/Patient/List">Back to List</a>
-    <a class="" href="/Patient/Update/@Model.patient.Id">Update</a>
-    <a class="navlink" href="/Patient/DeleteConfirm/@Model.patient.Id">Delete</a>
+<div class="">
+    <div><a class="navlink" href="/Patient/List">Back to List</a></div>
 </div>
 <div>
 
     <div class="col2">
         <div>Name : @Model.patient.Name</div>
-        <div>Get Well Wishes Received: @Model.patient.Wishes</div>
+        <div>Messages Received: <a href="/Wishes/Show/@Model.patient.WishesID">@Model.patient.Wishes.Title</a></div>
+
         <div>Age: @Model.patient.Age</div>
         <div>Diagnosis: @Model.patient.Diagnosis</div>
         <div>Room Number: @Model.patient.RoomNumber</div>
         <div>Phone Number: @Model.patient.PhoneNumber</div>
         <div>Email: @Model.patient.Email</div>
     </div>
+
+    <div><a class="" href="/Patient/Update/@Model.patient.Id">Update</a></div>
+    <div><a class="navlink" href="/Patient/DeleteConfirm/@Model.patient.Id">Delete</a></div>
 
 </div>

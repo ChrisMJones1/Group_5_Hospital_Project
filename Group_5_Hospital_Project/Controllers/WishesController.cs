@@ -35,7 +35,7 @@ namespace Group_5_Hospital_Project.Controllers
         [HttpPost]
         public ActionResult New(string wishesname, string sendername, string message)
         {
-            //write query to insert into wishes
+            //write query to insert
             string query = "INSERT INTO wishes (Title, SenderName, Message) values (@wishesname, @sendername, @message)  ";
             Debug.WriteLine("I am trying to add the" + wishesname);
 

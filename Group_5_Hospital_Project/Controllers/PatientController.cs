@@ -34,9 +34,8 @@ namespace Group_5_Hospital_Project.Controllers
         [HttpPost]
         public ActionResult New(string patientname, int patientage, string patientdia, int patientroom, int patientphone, string patientemail, int WishesID)
         {
-            //write query to insert into furniture
-            string query =
-                "INSERT INTO patients (Name, Age, Diagnosis, RoomNumber, PhoneNumber, Email, WishesID) values (@patientname, @patientage, @patientdia, @patientroom, @patientphone, @patientemail, @WishesID)  ";
+            //write query to insert 
+            string query = "INSERT INTO patients (Name, Age, Diagnosis, RoomNumber, PhoneNumber, Email, WishesID) values (@patientname, @patientage, @patientdia, @patientroom, @patientphone, @patientemail, @WishesID)  ";
             Debug.WriteLine("I am trying to add the" + patientname);
 
             SqlParameter[] Sqlparams = new SqlParameter[7]; // number of fields
@@ -46,7 +45,7 @@ namespace Group_5_Hospital_Project.Controllers
             Sqlparams[3] = new SqlParameter("@patientroom", patientroom);
             Sqlparams[4] = new SqlParameter("@patientphone", patientphone);
             Sqlparams[5] = new SqlParameter("@patientemail", patientemail);
-            Sqlparams[6] = new SqlParameter("@WishesID", WishesID);
+            Sqlparams[6] = new SqlParameter("@wishesID", WishesID);
 
 
             //execute the query

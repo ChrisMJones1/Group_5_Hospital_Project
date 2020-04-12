@@ -4,17 +4,49 @@
 
 @{
 
+    <h2>Get Well Soon Messages</h2>
+
 
     <div class="">
-        <a class="" href="/Wishes/New">Add Send Best Wishes Form</a><br /><br />
+        <a class="" href="/Wishes/New">Add a Get Well Message</a><br /><br />
     </div>
 
-    foreach (var wishes in Model)
-    {
 
-        <div><a href="/Wishes/Show/@wishes.Id">@wishes.Title</a></div>
+    <table class="table">
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Message
+            </th>
+            <th></th>
+        </tr>
 
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.ActionLink("Show", "Show", new { id = item.Id }) |
+                    @Html.ActionLink("Update", "Update", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+
+
+
 
 
 }
