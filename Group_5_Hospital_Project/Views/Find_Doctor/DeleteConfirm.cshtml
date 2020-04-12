@@ -1,0 +1,14 @@
+﻿@model Group_5_Hospital_Project.Models.Find_Doctor
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>DeleteConfirm</h2>
+
+<h2>Are you sure you want to delete @Model.doctor_name?</h2>
+<div class="navbar">
+    <a href="/Find_Doctor/Show/@Model.doctor_id">Cancel</a>
+</div>
+<form method="POST" action="/Find_Doctor/Delete/@Model.doctor_id">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form>

@@ -1,0 +1,13 @@
+﻿@model Group_5_Hospital_Project.Models.Find_Doctor
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show Doctor's Details</h2>
+
+<div>Name : @Model.doctor_name</div>
+<div>Email : @Model.doctor_email</div>
+<div>Phone: @Model.doctor_phone</div>
+<div>Specialization: @Model.doctor_specialization</div>
+<a href="/Find_Doctor/Update/@Model.doctor_id">Update</a>
+<a href="/Find_Doctor/DeleteConfirm/@Model.doctor_id">Delete</a>

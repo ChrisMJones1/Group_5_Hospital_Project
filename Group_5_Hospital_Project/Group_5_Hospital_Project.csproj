@@ -175,8 +175,10 @@
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\Feedback_FormsController.cs" />
+    <Compile Include="Controllers\Find_DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Controllers\VolunteersController.cs" />
@@ -184,9 +186,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004100428202_init.cs" />
-    <Compile Include="Migrations\202004100428202_init.designer.cs">
-      <DependentUpon>202004100428202_init.cs</DependentUpon>
+    <Compile Include="Migrations\202004100516043_initial1.cs" />
+    <Compile Include="Migrations\202004100516043_initial1.designer.cs">
+      <DependentUpon>202004100516043_initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -414,6 +416,16 @@
     <Content Include="Views\Appointments\Details.cshtml" />
     <Content Include="Views\Appointments\Edit.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\News\New.cshtml" />
+    <Content Include="Views\News\List.cshtml" />
+    <Content Include="Views\News\Update.cshtml" />
+    <Content Include="Views\News\DeleteConfirm.cshtml" />
+    <Content Include="Views\News\Show.cshtml" />
+    <Content Include="Views\Find_Doctor\List.cshtml" />
+    <Content Include="Views\Find_Doctor\Show.cshtml" />
+    <Content Include="Views\Find_Doctor\New.cshtml" />
+    <Content Include="Views\Find_Doctor\Update.cshtml" />
+    <Content Include="Views\Find_Doctor\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -430,8 +442,8 @@
     <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004100428202_init.resx">
-      <DependentUpon>202004100428202_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004100516043_initial1.resx">
+      <DependentUpon>202004100516043_initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

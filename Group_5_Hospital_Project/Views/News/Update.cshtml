@@ -1,0 +1,20 @@
+﻿@model Group_5_Hospital_Project.Models.News
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update news</h2>
+
+
+<div class="navbar">
+    <a href="/News/List">Back to List</a>
+</div>
+<form action="/News/Update/@Model.news_id" method="POST">
+
+    <div class="inpfield"><span>News Title: </span><input type="text" value="@Model.news_title" id="news_title" name="news_title" /> </div>
+    <div class="inpfield"><span>News Date: </span><input type="text" value="@Model.news_date" id="news_date" name="news_date" /> </div>
+    <div class="inpfield"><span>News Description: </span><input type="text" value="@Model.news_description" id="news_description" name="news_description" /> </div>
+    <div class="inpfield"><input type="submit" value="update news" /></div>
+
+</form>
+

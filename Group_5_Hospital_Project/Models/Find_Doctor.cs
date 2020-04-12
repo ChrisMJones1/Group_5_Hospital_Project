@@ -16,8 +16,7 @@ namespace Group_5_Hospital_Project.Models
         public string doctor_name { get; set; }
         public string doctor_email { get; set; }
         public int doctor_phone { get; set; }
-        public string doctor_speciality { get; set; }
-        public string doctor_availabilty { get; set; }
-        public string doctor_experience { get; set; }
+        public string doctor_specialization { get; set; }
+
     }
 }

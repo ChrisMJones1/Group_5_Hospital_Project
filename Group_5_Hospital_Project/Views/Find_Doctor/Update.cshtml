@@ -1,0 +1,19 @@
+﻿@model Group_5_Hospital_Project.Models.Find_Doctor
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Doctor's Details</h2>
+
+
+<div class="navbar">
+    <a href="/Find_Doctor/List">Back to List</a>
+</div>
+<form action="/Find_Doctor/Update/@Model.doctor_id" method="POST">
+
+    <div class="inpfield"><span>Name: </span><input type="text" value="@Model.doctor_name" id="doctor_name" name="doctor_name" /> </div>
+    <div class="inpfield"><span>Email: </span><input type="text" value="@Model.doctor_email" id="doctor_email" name="doctor_email" /> </div>
+    <div class="inpfield"><span>Phone: </span><input type="text" value="@Model.doctor_phone" id="doctor_phone" name="doctor_phone" /> </div>
+    <div class="inpfield"><span>Specialization: </span><input type="text" value="@Model.doctor_specialization" id="doctor_specialization" name="doctor_specialization" /> </div>
+    <div class="inpfield"><input type="submit" value="update doctor" /></div>
+</form>
