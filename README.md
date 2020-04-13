@@ -39,10 +39,10 @@ Files/code created for this project:
 
 Additional Duties Performed:
 
-  -Primary manager/help desk and fixer of all database/migration/model/compile/merge errors
-  -Primary point of contact for resolution of team member's errors/questions regarding project/code
-  -Assisted/fixed other models when required to allow code to compile/migrate successfully.
-  -Created primary readme template for other members to use.
+  - Primary manager/help desk and fixer of all database/migration/model/compile/merge errors.  
+  - Primary point of contact for resolution of team member's errors/questions regarding project/code.  
+  - Assisted/fixed other models when required to allow code to compile/migrate successfully.
+  - Created primary readme template for other members to use.
   
 
    
