@@ -172,16 +172,27 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
+    <Compile Include="Controllers\Career_CandidateController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Career_JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Data\Group_5_Hospital_Project_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004030248061_init.cs" />
-    <Compile Include="Migrations\202004030248061_init.designer.cs">
-      <DependentUpon>202004030248061_init.cs</DependentUpon>
+    <Compile Include="Migrations\202004071725283_init.cs" />
+    <Compile Include="Migrations\202004071725283_init.designer.cs">
+      <DependentUpon>202004071725283_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091949080_init1.cs" />
+    <Compile Include="Migrations\202004091949080_init1.designer.cs">
+      <DependentUpon>202004091949080_init1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004100412152_init2.cs" />
+    <Compile Include="Migrations\202004100412152_init2.designer.cs">
+      <DependentUpon>202004100412152_init2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -203,6 +214,8 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
     <Compile Include="Models\Subscriber.cs" />
+    <Compile Include="Models\ViewModels\showCandidates.cs" />
+    <Compile Include="Models\ViewModels\showCareer_Job.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -391,6 +404,21 @@
     <Content Include="Views\Subscriber\Show.cshtml" />
     <Content Include="Views\Subscriber\Edit.cshtml" />
     <Content Include="Views\Subscriber\Delete.cshtml" />
+    <Content Include="Views\Donation\list.cshtml" />
+    <Content Include="Views\Donation\show.cshtml" />
+    <Content Include="Views\Donation\add.cshtml" />
+    <Content Include="Views\Donation\update.cshtml" />
+    <Content Include="Views\Donation\DeleteConfirm.cshtml" />
+    <Content Include="Views\Career_Job\List.cshtml" />
+    <Content Include="Views\Career_Job\Add.cshtml" />
+    <Content Include="Views\Career_Job\Show.cshtml" />
+    <Content Include="Views\Career_Job\Update.cshtml" />
+    <Content Include="Views\Career_Job\DeleteConfirm.cshtml" />
+    <Content Include="Views\Career_Candidate\List.cshtml" />
+    <Content Include="Views\Career_Candidate\New.cshtml" />
+    <Content Include="Views\Career_Candidate\Show.cshtml" />
+    <Content Include="Views\Career_Candidate\Update.cshtml" />
+    <Content Include="Views\Career_Candidate\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -404,11 +432,19 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004030248061_init.resx">
-      <DependentUpon>202004030248061_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004071725283_init.resx">
+      <DependentUpon>202004071725283_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091949080_init1.resx">
+      <DependentUpon>202004091949080_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004100412152_init2.resx">
+      <DependentUpon>202004100412152_init2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Job\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

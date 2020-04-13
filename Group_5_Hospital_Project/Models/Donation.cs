@@ -11,6 +11,15 @@ namespace Group_5_Hospital_Project.Models
 {
     public class Donation
     {
+        //A donor is a person who gives charity for the purpose of serving the patients and community for their health care
+        //    the properties that define a donation are:
+        //    -name
+        //    -email
+        //    -phone
+        //    -country
+        //    -address
+        //    -date of donation
+
         [Key]
         public int donor_id { get; set; }
         public string donor_name { get; set; }

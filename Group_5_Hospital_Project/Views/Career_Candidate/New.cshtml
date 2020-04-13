@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+<!--Here we are adding new candidate and the values will be submitted using post method -->
+<h2>NEW CANDIDATE</h2>
+<div class="navbar">
+    <a class="navlink" href="/Career_Candidate/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/Career_Candidate/Add">
+            <div class="inpfield"><span>Candidate Name:</span><input type="text" name="candidate_name" id="candidate_name" /></div>
+            <div class="inpfield"><span>Candidate Email:</span><input type="text" name="candidate_email" id="candidate_email" /></div>
+            <div class="inpfield"><span>Candidate Phone:</span><input type="text" name="candidate_phone" id="candidate_phone" /></div>
+            <div class="inpfield"><span>Job Type:</span><input type="text" name="candidate_jobtype" id="candidate_jobtype" /></div>
+            <div class="inpfield"><span>Candidate Address:</span><input type="text" name="candidate_address" id="candidate_address" /></div>
+            <input type="submit" value="APPLY" />
+        </form>
+    </div>
+    <div class="col2last"></div>
+    <div style="clear:both;"></div>
+</div>

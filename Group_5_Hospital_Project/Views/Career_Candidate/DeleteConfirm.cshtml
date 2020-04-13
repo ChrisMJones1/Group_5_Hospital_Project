@@ -1,0 +1,14 @@
+﻿@model Group_5_Hospital_Project.Models.Career_Candidate
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+<!-- This is interface to delete a candidate -->
+<h2>Are you sure you want to delete @Model.candidate_name?</h2>
+<!--Link to the show page of the candidates -->
+<div class="navbar">
+    <a href="/Career_Candidate/Show/@Model.candidate_id">Cancel</a>
+</div>
+<!-- here the selected candidate will be deleted-->
+<form method="POST" action="/Career_Candidate/Delete/@Model.candidate_id">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form>

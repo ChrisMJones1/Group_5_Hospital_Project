@@ -1,0 +1,23 @@
+﻿@model Group_5_Hospital_Project.Models.Donation
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>DETAILS OF DONATIONS</h2>
+<!--This is interface to show all the details for the donation and also it has links for the updating and deleting the donation. -->
+
+<div class="navbar">
+    <a class="navlink" href="/Donation/list">BACK TO LIST</a>
+    <a class="navlink" href="/Donation/update/@Model.donor_id">UPDATE</a>
+    <a class="navlink" href="/Donation/deleteConfirm/@Model.donor_id">DELETE</a>
+</div>
+<!--To display the all the details of donation for the show function-->
+<div>
+    <div><span>NAME : </span>@Model.donor_name</div>
+    <div><span>EMAIL : </span>@Model.donor_email</div>
+    <div><span>PHONE : </span>@Model.donor_phone</div>
+    <div><span>COUNTRY : </span>@Model.donor_country</div>
+    <div><span>ADDRESS : </span>@Model.donor_address</div>
+    <div><span>DATE : </span>@Model.donor_date</div>
+
+</div>

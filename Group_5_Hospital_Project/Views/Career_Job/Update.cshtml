@@ -1,0 +1,27 @@
+﻿@model Group_5_Hospital_Project.Models.Career_Job
+
+
+@{
+    ViewBag.Title = "Update";
+}
+<!--here we updating details of the job-->
+
+<h2>Update</h2>
+<div class="navbar">
+    <!--link to go back to the list of the jobs-->
+    <a href="/Career_Job/List">Back to List</a>
+</div>
+
+<form action="/Career_Job/Update/@Model.job_id" method="POST">
+    <!--here we are getting the previous stored values in the fields in order to update-->
+    <div class="inpfield"><span>JOB NAME: </span><input type="text" value="@Model.job_name" id="job_name" name="job_name" /> </div>
+    <div class="inpfield"><span>JOB TYPE: </span><input type="text" value="@Model.job_type" id="job_type" name="job_type" /> </div>
+    <div class="inpfield"><span>JOB REQUIREMENT: </span><input type="text" value="@Model.job_requirement" id="job_requirement" name="job_requirement" /> </div>
+    <div class="inpfield"><span>POSTING DATE: </span><input type="text" value="@Model.job_date" id="job_date" name="job_date" /> </div>
+    <div class="inpfield">
+        <span>JOB DESCRIPTION</span>
+        <textarea id="job_description" name="job_description">@Model.job_description</textarea>
+    </div>
+    <div class="inpfield"><input type="submit" value="UPDATE JOB" name="Update" /></div><!--To submit the updated values-->
+
+</form>

@@ -1,0 +1,36 @@
+﻿@model List<Group_5_Hospital_Project.Models.Donation>
+
+
+@{
+    ViewBag.Title = "list";
+}
+<!--Here all the donations will be displayed -->
+<h2>List of Donations</h2>
+<div class="navbar">
+    <a class="navlink" href="/Donation/add">DONATE</a>
+</div>
+<div class="paginate">
+    @{
+        <a href="/Donation/list?pagenum=@((int)ViewData["pagenum"]-1)&donationsearchkey=@ViewData["donationsearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Donation/list?pagenum=@((int)ViewData["pagenum"]+1)&donationsearchkey=@ViewData["donationsearchkey"]">Next</a>
+    }
+</div>
+<!--To seach a particular donation -->
+<form method="GET" action="/Donation/list">
+    <a class="navlink" href="/Donation/list">BACK</a>
+    <input type="text" id="donationsearchkey" name="donationsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<!-- To display donation list which is stored in the database-->
+<div class="tilecontainer">
+    @foreach (var donation in @Model)
+    {
+        <div class="listitem">
+            <div><a href="/Donation/show/@donation.donor_id">@donation.donor_name</a></div><!-- link to go to the details of the donation-->
+            <div>Donor Phone: @donation.donor_phone</div>
+            <div>Donor Email: @donation.donor_email</div>
+            <div>Donor Country: @donation.donor_country</div>
+        </div>
+    }
+</div>

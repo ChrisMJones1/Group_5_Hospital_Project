@@ -1,0 +1,16 @@
+﻿@model  List<Group_5_Hospital_Project.Models.Career_Job>
+@{
+    ViewBag.Title = "Add";
+}
+<!--Here we are adding jobs to the database-->
+<h2>ADD JOBS</h2>
+
+<form method="POST" action="/Career_Job/Add">
+
+    <div class="inpfield"><span> JOB NAME:</span><input id="job_name" type="text" name="job_name" /></div>
+    <div class="inpfield"><span> JOB TYPE:</span><input id="job_type" type="text" name="job_type" /></div>
+    <div class="inpfield"><span>REQUIREMENT:</span><input id="job_requirement" type="text" name="job_requirement" /></div>
+    <div class="inpfield"><span>DATE OF POSTING:</span><input id="job_date" type="text" name="job_date" /></div>
+    <div class="inpfield"> JOB DESCRIPTION:<textarea id="job_description" name="job_description">  </textarea> </div>
+    <div class="inpfield"> <input type="submit" value="ADD JOB"> </div><!--To submit values and add to database through post method-->
+</form>

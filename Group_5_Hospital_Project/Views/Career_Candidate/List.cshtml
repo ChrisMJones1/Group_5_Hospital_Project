@@ -1,0 +1,36 @@
+﻿@model List<Group_5_Hospital_Project.Models.Career_Candidate>
+
+
+@{
+    ViewBag.Title = "List";
+}
+<!--Here all the candidates will be displayed -->
+<h2>LIST OF CANDIDATES</h2>
+<div class="navbar">
+    <a class="navlink" href="/Career_Candidate/New">APPLY</a>
+</div>
+<!--To seach a particular candidate -->
+<form method="GET" action="/Career_Candidate/List">
+    <a class="navlink" href="/Career_Candidate/List">Back to List</a>
+    <input type="text" id="candidatesearchkey" name="candidatesearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<!-- To display candidate list which is stored in the database-->
+<div class="tilecontainer">
+    @foreach (var Career_Candidate in @Model)
+    {
+        <div class="listitem">
+            <div><a href="/Career_Candidate/Show/@Career_Candidate.candidate_id">@Career_Candidate.candidate_name</a></div><!-- link to go to the details of the candidate-->
+            <div>Payment Type: @Career_Candidate.candidate_email</div>
+            <div>candidate Date: @Career_Candidate.candidate_phone</div>
+            <div>candidate Cost: @Career_Candidate.candidate_jobtype</div>
+        </div>
+    }
+</div>
+<div class="paginate">
+    @{
+        <a href="/Career_Candidate/List?pagenum=@((int)ViewData["pagenum"]-1)&candidatesearchkey=@ViewData["candidatesearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Career_Candidate/List?pagenum=@((int)ViewData["pagenum"]+1)&candidatesearchkey=@ViewData["candidatesearchkey"]">Next</a>
+    }
+</div>

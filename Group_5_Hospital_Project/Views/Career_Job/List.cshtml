@@ -1,0 +1,42 @@
+﻿@model List<Group_5_Hospital_Project.Models.Career_Job>
+
+
+@{
+    ViewBag.Title = "List";
+}
+<!--Here all the jobs will be displayed -->
+<h2>JOB POSTINGS</h2>
+<div class="navbar">
+    <a class="navlink" href="/Career_Job/Add">ADD NEW JOB</a>
+</div>
+
+<!--To seach a particular job -->
+<form method="GET" action="/Career_Job/List">
+    <a class="navlink" href="/Career_Job/List">BACK</a>
+    <input type="text" id="jobsearchkey" name="jobsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<!-- To display job list which is stored in the database-->
+<div class="tilecontainer">
+    @{
+        foreach (var Career_Job in @Model)
+        {
+            <div class="listitem">
+                <div class="itemdetails">
+                    <div class="listcat"><a href="/Career_Job/Show/@Career_Job.job_id">@Career_Job.job_name</a></div>
+                    <div class="listcat">Type : <span>@Career_Job.job_type</span></div>
+                    <span class="cta"><a href="/Career_Job/Update/@Career_Job.job_id">Update</a></span>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        }
+    }
+    <div style="clear:both;"></div>
+</div>
+<div class="paginate">
+    @{
+        <a href="/Career_Job/List?pagenum=@((int)ViewData["pagenum"]-1)&jobsearchkey=@ViewData["jobsearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Career_Job/List?pagenum=@((int)ViewData["pagenum"]+1)&jobsearchkey=@ViewData["jobsearchkey"]">Next</a>
+    }
+</div>

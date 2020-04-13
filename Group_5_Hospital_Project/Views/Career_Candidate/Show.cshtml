@@ -1,0 +1,63 @@
+﻿
+@model Group_5_Hospital_Project.Models.ViewModels.showCandidates
+@{
+    ViewBag.Title = "New";
+}
+<!--To show details of every candidate along with details of the jobs that have been added to the candidate-->
+<h2>@Model.Career_Candidate.candidate_name</h2>
+<div class="navbar">
+    <a class="navlink" href="/Career_Candidate/List">Back to List</a>
+    <a class="navlink" href="/Career_Candidate/Update/@Model.Career_Candidate.candidate_id">Update</a>
+    <a class="navlink" href="/Career_Candidate/DeleteConfirm/@Model.Career_Candidate.candidate_id">Delete</a>
+</div>
+<div>
+    <!--Here it is showing details of the candidate -->
+    <div class="col2">
+        <div><span>Name:</span> @Model.Career_Candidate.candidate_name</div>
+        <div><span>Email:</span>@Model.Career_Candidate.candidate_email</div>
+        <div><span>Phone:</span> @Model.Career_Candidate.candidate_phone</div>
+        <div><span>Job Type:</span>@Model.Career_Candidate.candidate_jobtype</div>
+        <div><span>Address:</span>@Model.Career_Candidate.candidate_address</div>
+
+
+    </div>
+    <!--here it is showing details of the jobs that have been added to the candidate (many to many relation -->
+    <div class="col2last">
+        <div class="sectionheader">JOBS TO BE APPLIED:</div>
+        @{
+
+            foreach (var Career_Job in @Model.Career_Jobs)
+            {
+                <div class="lineitem">
+                    <a href="/Career_Job/Show/@Career_Job.job_id">@Career_Job.job_name</a><!--To display job added-->
+                    @{
+
+                    }
+                    <a href="/Career_Candidate/Detachjob/@Model.Career_Candidate.candidate_id?job_id=@Career_Job.job_id">
+                        <!--To remove a job-->
+                        DELETE CANDIDATE
+                    </a>
+                </div>
+            }
+
+        }
+        <!--To add a job from the list of jobs-->
+        <form method="post" action="/Career_Candidate/Attachjob/@Model.Career_Candidate.candidate_id">
+            <select name="job_id" id="job_id">
+                @{
+
+
+                    foreach (var Career_Job in Model.all_Career_Jobs)
+                    {
+                        <option value="@Career_Job.job_id">
+                            @Career_Job.job_name
+                        </option>
+                    }
+                }
+            </select>
+            <input type="submit" value="Apply Jobs" name="Attachjob" /><!--To add the job by the candidate-->
+        </form>
+
+    </div>
+    <div style="clear:both;"></div>
+</div>

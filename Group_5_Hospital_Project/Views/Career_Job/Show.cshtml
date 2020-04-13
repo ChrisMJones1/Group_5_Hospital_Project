@@ -1,0 +1,47 @@
+﻿@model Group_5_Hospital_Project.Models.ViewModels.showCareer_Job
+
+@{
+    ViewBag.Title = "Show";
+}
+<!--here we are displaying all the details of the job and also the details of the candidate they have been applied by -->
+<h2>Show Jobs</h2>
+<!--Links to update and delete the job and also to go back to the main page -->
+<div class="navbar">
+    <a class="navlink" href="/Career_Job/List">Back to List</a>
+    <a class="navlink" href="/Career_Job/Update/@Model.Career_Jobs.job_id">Update</a>
+    <a class="navlink" href="/Career_Job/DeleteConfirm/@Model.Career_Jobs.job_id">Delete</a>
+</div>
+
+<div>
+    <!--here in this column all the details for the jobs wiil be displayed -->
+    <div class="col2">
+
+        <div>JOB NAME : @Model.Career_Jobs.job_name</div>
+        <div>JOB TYPE : @(Model.Career_Jobs.job_type)</div>
+        <div>JOB REQUIREMENT: @Model.Career_Jobs.job_requirement</div>
+        <div>DATE OF POSTING : @Model.Career_Jobs.job_date</div>
+        <div>
+           JOB DESCRIPTION :
+            <div class="notepad">
+                @Model.Career_Jobs.job_description
+            </div>
+        </div>
+
+    </div>
+    <!--here in this column all the details for the candidates who applied this job will be displayed showing its many to many relation -->
+    <div class="col2last">
+        <div class="sectionheader">CANDIDATES:</div>
+        @{
+
+            foreach (var Career_Candidate in @Model.Career_Candidates)
+            {
+                <div class="lineitem">
+                    <a href="/candidate/Show/@Career_Candidate.candidate_id">@Career_Candidate.candidate_name, @Career_Candidate.candidate_jobtype</a>
+                </div>
+            }
+
+
+        }
+    </div>
+    <div style="clear:both;"></div>
+</div>

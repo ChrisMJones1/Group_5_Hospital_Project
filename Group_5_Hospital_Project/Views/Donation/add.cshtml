@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "add";
+}
+<!-- Here we are adding new donation and submitting it through post method.-->
+<h2>Add</h2>
+<a href="/Donation/list" class="navlink">BACK TO LIST</a>
+<form method="POST" action="/Donation/add">
+    <div class="inpfield"><span> Donor Name:</span><input type="text" id="donor_name" name="donor_name" /></div>
+    <div class="inpfield"><span> Donor Email:</span><input type="text" id="donor_email" name="donor_email" /></div>
+    <div class="inpfield"><span> Donor Phone:</span><input type="text" id="donor_phone" name="donor_phone" /></div>
+    <div class="inpfield"><span> Donor Country:</span><input type="text" id="donor_country" name="donor_country" /></div>
+    <div class="inpfield"><span> Donor Address:</span><input type="text" id="donor_address" name="donor_address" /></div>
+    <div class="inpfield"><span> Donor Date:</span><input type="text" id="donor_date" name="donor_date" /></div>
+
+
+    <div class="inpfield"><input type="submit" value="Add New Donation" /></div><!-- TO submit the form-->
+</form>

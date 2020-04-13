@@ -1,0 +1,26 @@
+﻿@model Group_5_Hospital_Project.Models.Career_Candidate
+
+
+@{
+    ViewBag.Title = "New";
+}
+<!--Here we are updating the details of  the candidate that has alredy been placed-->
+<h2>Candidate Details:</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Career_Candidate/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/Career_Candidate/Update/@Model.candidate_id">
+            <div class="inpfield"><span>Name:</span><input type="text" name="candidate_name" id="candidate_name" value="@Model.candidate_name" /></div>
+            <div class="inpfield"><span>Email:</span><input type="text" name="candidate_email" id="candidate_email" value="@Model.candidate_email" /></div>
+            <div class="inpfield"><span>Phone:</span><input type="text" name="candidate_phone" id="candidate_phone" value="@Model.candidate_phone" /></div>
+            <div class="inpfield"><span>Job Type:</span><input type="text" name="candidate_jobtype" id="candidate_jobtype" value="@Model.candidate_jobtype" /></div>
+            <div class="inpfield"><span>Address:</span><input type="text" name="candidate_address" id="candidate_address" value="@Model.candidate_address" /></div>
+            <input type="submit" value="Update candidate" /><!--To submit the updated values-->
+        </form>
+    </div>
+    <div class="col2last"></div>
+    <div style="clear:both;"></div>
+</div>

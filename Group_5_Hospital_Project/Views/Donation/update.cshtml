@@ -1,0 +1,27 @@
+﻿@model Group_5_Hospital_Project.Models.Donation
+
+
+@{
+    ViewBag.Title = "New";
+}
+<!--Here we are updating the details of  the donation that has already been made-->
+<h2>DONATIONS</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Donation/list">BACK TO LIST</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/Donation/update/@Model.donor_id">
+            <div class="inpfield"><span> Name:</span><input type="text" name="donor_name" id="donor_name" value="@Model.donor_name" /></div><br />
+            <div class="inpfield"><span> Email:</span><input type="text" name="donor_email" id="donor_email" value="@Model.donor_email" /></div><br />
+            <div class="inpfield"><span>Phone:</span><input type="text" name="donor_phone" id="donor_phone" value="@Model.donor_phone" /></div><br/>
+            <div class="inpfield"><span>Country:</span><input type="text" name="donor_country" id="donor_country" value="@Model.donor_country" /></div><br/>
+            <div class="inpfield"><span>Address:</span><input type="text" name="donor_address" id="donor_address" value="@Model.donor_address" /></div><br/>
+            <div class="inpfield"><span>Date:</span><input type="text" name="donor_date" id="donor_date" value="@Model.donor_date" /></div>
+
+            <input type="submit" value="Update Donor " /><!--To submit the updated values-->
+        </form>
+    </div>
+   
+</div>
