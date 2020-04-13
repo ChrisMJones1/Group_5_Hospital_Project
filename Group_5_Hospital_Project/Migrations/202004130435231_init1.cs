@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class init1 : DbMigration
     {
         public override void Up()
         {
@@ -163,9 +163,7 @@
                         doctor_name = c.String(),
                         doctor_email = c.String(),
                         doctor_phone = c.Int(nullable: false),
-                        doctor_speciality = c.String(),
-                        doctor_availabilty = c.String(),
-                        doctor_experience = c.String(),
+                        doctor_specialization = c.String(),
                     })
                 .PrimaryKey(t => t.doctor_id);
             
@@ -175,9 +173,8 @@
                     {
                         news_id = c.Int(nullable: false, identity: true),
                         news_title = c.String(),
-                        newsposted_date = c.DateTime(nullable: false),
-                        newsupdated_date = c.DateTime(nullable: false),
-                        news_information = c.String(),
+                        news_date = c.DateTime(nullable: false),
+                        news_description = c.String(),
                     })
                 .PrimaryKey(t => t.news_id);
             
@@ -212,6 +209,35 @@
                 .PrimaryKey(t => t.id);
             
             CreateTable(
+                "dbo.Patients",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Age = c.Int(nullable: false),
+                        Diagnosis = c.String(),
+                        RoomNumber = c.Int(nullable: false),
+                        PhoneNumber = c.Int(nullable: false),
+                        Email = c.String(),
+                        WishesID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Wishes", t => t.WishesID, cascadeDelete: true)
+                .Index(t => t.WishesID);
+            
+            CreateTable(
+                "dbo.Wishes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        SenderName = c.String(),
+                        Status = c.String(),
+                        Message = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -220,6 +246,18 @@
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
+                "dbo.Slideshows",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        Description = c.String(),
+                        AltText = c.String(),
+                        ImageURL = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Staff_Bios",
@@ -262,6 +300,19 @@
                 .Index(t => t.ApplicationUser_Id);
             
             CreateTable(
+                "dbo.Career_JobCareer_Candidate",
+                c => new
+                    {
+                        Career_Job_job_id = c.Int(nullable: false),
+                        Career_Candidate_candidate_id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Career_Job_job_id, t.Career_Candidate_candidate_id })
+                .ForeignKey("dbo.Career_Job", t => t.Career_Job_job_id, cascadeDelete: true)
+                .ForeignKey("dbo.Career_Candidate", t => t.Career_Candidate_candidate_id, cascadeDelete: true)
+                .Index(t => t.Career_Job_job_id)
+                .Index(t => t.Career_Candidate_candidate_id);
+            
+            CreateTable(
                 "dbo.SubscriberNewsletters",
                 c => new
                     {
@@ -280,9 +331,12 @@
         {
             DropForeignKey("dbo.Staff_Bios", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Patients", "WishesID", "dbo.Wishes");
             DropForeignKey("dbo.SubscriberNewsletters", "Newsletter_newsletter_id", "dbo.Newsletters");
             DropForeignKey("dbo.SubscriberNewsletters", "Subscriber_subscriber_id", "dbo.Subscribers");
             DropForeignKey("dbo.Feedback_Forms", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Career_JobCareer_Candidate", "Career_Candidate_candidate_id", "dbo.Career_Candidate");
+            DropForeignKey("dbo.Career_JobCareer_Candidate", "Career_Job_job_id", "dbo.Career_Job");
             DropForeignKey("dbo.VolunteerApplicationUsers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.VolunteerApplicationUsers", "Volunteer_Volunteer_ID", "dbo.Volunteers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -292,12 +346,15 @@
             DropForeignKey("dbo.ApplicationUserAppointments", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropIndex("dbo.SubscriberNewsletters", new[] { "Newsletter_newsletter_id" });
             DropIndex("dbo.SubscriberNewsletters", new[] { "Subscriber_subscriber_id" });
+            DropIndex("dbo.Career_JobCareer_Candidate", new[] { "Career_Candidate_candidate_id" });
+            DropIndex("dbo.Career_JobCareer_Candidate", new[] { "Career_Job_job_id" });
             DropIndex("dbo.VolunteerApplicationUsers", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.VolunteerApplicationUsers", new[] { "Volunteer_Volunteer_ID" });
             DropIndex("dbo.ApplicationUserAppointments", new[] { "Appointment_Appointment_ID" });
             DropIndex("dbo.ApplicationUserAppointments", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.Staff_Bios", new[] { "User_Id" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Patients", new[] { "WishesID" });
             DropIndex("dbo.Feedback_Forms", new[] { "User_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -305,10 +362,14 @@
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropTable("dbo.SubscriberNewsletters");
+            DropTable("dbo.Career_JobCareer_Candidate");
             DropTable("dbo.VolunteerApplicationUsers");
             DropTable("dbo.ApplicationUserAppointments");
             DropTable("dbo.Staff_Bios");
+            DropTable("dbo.Slideshows");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Wishes");
+            DropTable("dbo.Patients");
             DropTable("dbo.Pages");
             DropTable("dbo.Subscribers");
             DropTable("dbo.Newsletters");
