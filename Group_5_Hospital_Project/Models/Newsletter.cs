@@ -17,6 +17,7 @@ namespace Group_5_Hospital_Project.Models
         public string newsletter_title { get; set; }
         [Display(Name = "Body")]
         public string newsletter_body { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public ICollection<Subscriber> Subscribers { get; set; }
     }
 }

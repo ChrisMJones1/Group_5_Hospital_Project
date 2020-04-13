@@ -11,6 +11,9 @@ using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
 using PagedList.Mvc;
 using PagedList;
+using System.Diagnostics;
+using Group_5_Hospital_Project.Models.VIewModels;
+
 
 namespace Group_5_Hospital_Project.Models
 {
@@ -29,13 +32,16 @@ namespace Group_5_Hospital_Project.Models
         public ActionResult NewsletterSubscriber(int id)
         {
             string query = "select * from Newsletter inner join SubscriberNewsletter on " +
-                "Newsletter.newsletter_id = SubscriberNewsletter.Newsletter_NewsletterID " +
-                "where Subscriber_SubscriberID = @id";
+                "Newsletter.newsletter_id = SubscriberNewsletter.Newsletter_newsletter_id " +
+                "where Subscriber_subscriber_id = @id";
 
             SqlParameter param = new SqlParameter("@id", id);
             List<Subscriber> NewsletterSubscribers = db.Subscriber.SqlQuery(query, param).ToList();
 
-            return View();
+            SubscriberNewsletterViewModel viewModel = new SubscriberNewsletterViewModel();
+            viewModel.subscribers = NewsletterSubscribers;
+
+            return View(viewModel);
         }
 
 

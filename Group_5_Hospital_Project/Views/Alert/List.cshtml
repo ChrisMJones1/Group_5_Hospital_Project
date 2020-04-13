@@ -1,47 +1,77 @@
 ﻿@using Group_5_Hospital_Project.Models
-@model List<Group_5_Hospital_Project.Models.Alert>
+@model IPagedList<Group_5_Hospital_Project.Models.Alert>
 
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using PagedList.Mvc;
+@using PagedList;
+
 <h2>List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "New")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Alert Title
-        </th>
-        <th>
-            Alert Body
-        </th>
-        <th>
-            Created At:
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var alert in @Model) {
-    <tr>
-        <td>
-            <a href="Show/@alert.alert_id" style="text-decoration: none; font-weight: bold;">@alert.alert_title</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => alert.alert_body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => alert.created_at)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id= alert.alert_id }) |
-            @Html.ActionLink("Details", "Show", new { id= alert.alert_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id= alert.alert_id })
-        </td>
-    </tr>
-}
+    @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2) //whether it is staff or admin
+    {
+        @Html.ActionLink("Create New", "New")
+    }
+
+    @using (Html.BeginForm("List", "Alert", FormMethod.Get))
+    {
+        @Html.TextBox("search", null, new { @class = "form-control mr-sm-2 d-inline search-field", @placeholder = "Press enter to Search!" })
+    }
+    </p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().alert_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().alert_body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(list => Model.First().created_at)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td>No Match found.</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var alert in @Model)
+        {
+            <tr>
+                <td>
+                    <a href="Show/@alert.alert_id" style="text-decoration: none; font-weight: bold;">@alert.alert_title</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => alert.alert_body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => alert.created_at)
+                </td>
+                @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2) //whether it is staff or admin
+                {
+                    <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = alert.alert_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = alert.alert_id })
+                    </td>
+                }
+                
+            </tr>
+        }
+    }
 
 </table>
+
+@Html.PagedListPager(Model, i => Url.Action("List", "Alert", new { i, search = Request.QueryString["search"] }))

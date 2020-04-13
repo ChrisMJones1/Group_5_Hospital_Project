@@ -180,17 +180,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
-    <Compile Include="Controllers\Career_CandidateController.cs" />
-    <Compile Include="Controllers\Career_JobController.cs" />
-    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\Feedback_FormsController.cs" />
-    <Compile Include="Controllers\Find_DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
-    <Compile Include="Controllers\Staff_BiosController.cs" />
     <Compile Include="Controllers\WishesController.cs" />
     <Compile Include="Controllers\Slideshow.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
@@ -199,10 +193,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\IdentityExtensions.cs" />
-    <Compile Include="Migrations\202004130435231_init1.cs" />
-    <Compile Include="Migrations\202004130435231_init1.designer.cs">
-      <DependentUpon>202004130435231_init1.cs</DependentUpon>
+    <Compile Include="Migrations\202004130641084_init.cs" />
+    <Compile Include="Migrations\202004130641084_init.designer.cs">
+      <DependentUpon>202004130641084_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -210,10 +203,8 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
-    <Compile Include="Models\VIewModels\AddBio.cs" />
-    <Compile Include="Models\VIewModels\showCandidates.cs" />
-    <Compile Include="Models\VIewModels\showCareer_Job.cs" />
     <Compile Include="Models\VIewModels\ShowPatient.cs" />
+    <Compile Include="Models\VIewModels\VolunteersViewModel.cs" />
     <Compile Include="Models\VIewModels\SubscriberNewsletterViewModel.cs" />
     <Compile Include="Models\VIewModels\UpdatePatient.cs" />
     <Compile Include="Models\VIewModels\ViewWishes.cs" />
@@ -233,6 +224,11 @@
     <Compile Include="Models\Subscriber.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,59 +241,6 @@
       <DependentUpon>Group_5_Hospital_Project_Context-30-03-2020.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\placeholder.txt" />
-    <Content Include="bin\Antlr3.Runtime.dll" />
-    <Content Include="bin\Antlr3.Runtime.pdb" />
-    <Content Include="bin\EntityFramework.dll" />
-    <Content Include="bin\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\EntityFramework.xml" />
-    <Content Include="bin\Group_5_Hospital_Project.dll" />
-    <Content Include="bin\Group_5_Hospital_Project.pdb" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
-    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
-    <Content Include="bin\Microsoft.Owin.dll" />
-    <Content Include="bin\roslyn\csc.exe" />
-    <Content Include="bin\roslyn\csi.exe" />
-    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
-    <Content Include="bin\roslyn\System.AppContext.dll" />
-    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
-    <Content Include="bin\roslyn\System.Console.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
-    <Content Include="bin\roslyn\System.IO.Compression.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
-    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
-    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
-    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
-    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
-    <Content Include="bin\roslyn\System.Security.Claims.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
-    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
-    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
-    <Content Include="bin\roslyn\System.ValueTuple.dll" />
-    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
-    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
-    <Content Include="bin\roslyn\vbc.exe" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -306,12 +249,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="obj\Debug\Group_5_Hospital_Project.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\Group_5_Hospital_Project.dll" />
-    <Content Include="obj\Debug\Group_5_Hospital_Project.pdb" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -336,27 +275,10 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Resources\ShanakaysFiles\Hospital Project-Justifications-ShanakayHall.pdf" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\Group_5_Hospital_Project.csproj.CopyComplete" />
-    <Content Include="obj\Debug\Group_5_Hospital_Project.csproj.CoreCompileInputs.cache" />
-    <Content Include="obj\Debug\Group_5_Hospital_Project.csproj.GenerateResource.cache" />
-    <Content Include="obj\Debug\Group_5_Hospital_Project.csprojAssemblyReference.cache" />
-    <Content Include="obj\Debug\Tsc.out" />
-    <Content Include="LAB WORK\Donation and Career feature %28lab Work%29-Raymiljit Kaur%28n01356496%29.pdf" />
-    <Content Include="bin\roslyn\csc.exe.config" />
-    <Content Include="bin\roslyn\csc.rsp" />
-    <Content Include="bin\roslyn\csi.exe.config" />
-    <Content Include="bin\roslyn\csi.rsp" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\vbc.exe.config" />
-    <Content Include="bin\roslyn\vbc.rsp" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <Content Include="bin\Group_5_Hospital_Project.dll.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -527,21 +449,6 @@
     <Content Include="Views\Patient\Show.cshtml" />
     <Content Include="Views\Patient\Update.cshtml" />
     <Content Include="Views\Patient\DeleteConfirm.cshtml" />
-    <Content Include="Views\Career_Candidate\DeleteConfirm.cshtml" />
-    <Content Include="Views\Career_Candidate\List.cshtml" />
-    <Content Include="Views\Career_Candidate\New.cshtml" />
-    <Content Include="Views\Career_Candidate\Show.cshtml" />
-    <Content Include="Views\Career_Candidate\Update.cshtml" />
-    <Content Include="Views\Career_Job\Add.cshtml" />
-    <Content Include="Views\Career_Job\DeleteConfirm.cshtml" />
-    <Content Include="Views\Career_Job\List.cshtml" />
-    <Content Include="Views\Career_Job\Show.cshtml" />
-    <Content Include="Views\Career_Job\Update.cshtml" />
-    <Content Include="Views\Donation\add.cshtml" />
-    <Content Include="Views\Donation\DeleteConfirm.cshtml" />
-    <Content Include="Views\Donation\list.cshtml" />
-    <Content Include="Views\Donation\show.cshtml" />
-    <Content Include="Views\Donation\update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -555,15 +462,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Slideshow\" />
     <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004130435231_init1.resx">
-      <DependentUpon>202004130435231_init1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004130641084_init.resx">
+      <DependentUpon>202004130641084_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\Group_5_Hospital_Project.Migrations.init1.resources" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

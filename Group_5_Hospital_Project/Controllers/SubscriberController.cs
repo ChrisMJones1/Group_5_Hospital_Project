@@ -34,7 +34,7 @@ namespace Group_5_Hospital_Project.Controllers
             db.Subscriber.Add(subscriber);
             db.SaveChanges();
 
-            return RedirectToAction("List", "Subscriber");
+            return RedirectToAction("Index", "Home");
         }
 
         //subscriber/show

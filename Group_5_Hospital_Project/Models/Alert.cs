@@ -21,7 +21,8 @@ namespace Group_5_Hospital_Project.Models
         public string alert_body { get; set; }
         [Display(Name = "Created At")]
         public DateTime created_at { get; set; }
-
+        public virtual ApplicationUser User { get; set; }
+ 
         public Alert()
         {
             created_at = DateTime.Now;

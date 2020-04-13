@@ -13,7 +13,11 @@
 <h2>Newsletter</h2>
 
 <p>
-    @Html.ActionLink("Create New", "New")
+    @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2)
+    {
+        @Html.ActionLink("Create New", "New")
+    }
+
 
     @using (Html.BeginForm("List", "Newsletter", FormMethod.Get))
     {
@@ -44,17 +48,21 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => newsletter.newsletter_title)
+                    <a href="Show/@newsletter.newsletter_id" style="text-decoration: none; font-weight: bold;">@newsletter.newsletter_id</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => newsletter.newsletter_body)
                 </td>
-                <td>
+                @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2)
+                {
+                    <td>
                     @Html.ActionLink("Edit", "Edit", new { id = newsletter.newsletter_id }) |
                     @Html.ActionLink("Details", "Show", new { id = newsletter.newsletter_id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = newsletter.newsletter_id }) |
                     @Html.ActionLink("Send Email", "SendEmail", new { id = newsletter.newsletter_id })
-                </td>
+                    </td>
+                }
+                
             </tr>
         }
     }

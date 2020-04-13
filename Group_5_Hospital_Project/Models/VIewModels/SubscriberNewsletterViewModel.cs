@@ -9,9 +9,9 @@ namespace Group_5_Hospital_Project.Models.VIewModels
 {
     public class SubscriberNewsletterViewModel
     {
-        public Newsletter newsletter { get; set; }
+        public virtual Newsletter newsletter { get; set; }
 
         [Display(Name = "Subscribers")]
-        public List<Subscriber> subscribers { get; set; }
+        public virtual List<Subscriber> subscribers { get; set; }
     }
 }
