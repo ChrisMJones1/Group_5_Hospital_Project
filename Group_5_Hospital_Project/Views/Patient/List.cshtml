@@ -1,0 +1,64 @@
+﻿@using Group_5_Hospital_Project.Models
+@model List<Group_5_Hospital_Project.Models.Patient>
+
+
+
+
+@{
+
+    <h2>Patients</h2>
+
+
+    <div class="">
+        <a class="" href="/Patient/New">Add New Patient</a><br /><br />
+    </div>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Diagnosis
+            </th>
+            <th>
+                Wishes
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diagnosis)
+                </td>
+                <td>
+                    <div>Sender: @Html.DisplayFor(modelItem => item.Wishes.SenderName)</div>
+                    @Html.DisplayFor(modelItem => item.Wishes.Message)
+                </td>
+                <td>
+                    @Html.ActionLink("Show", "Show", new { id = item.Id }) |
+                    @Html.ActionLink("Update", "Update", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+
+
+}

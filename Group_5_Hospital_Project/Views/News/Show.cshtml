@@ -1,0 +1,15 @@
+﻿
+@model Group_5_Hospital_Project.Models.News
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show News</h2>
+
+<div>Title : @Model.news_title</div>
+<div>Date : @Model.news_date</div>
+<div>Description: @Model.news_description</div>
+<a href="/News/Update/@Model.news_id">Update</a>
+<a href="/News/DeleteConfirm/@Model.news_id">Delete</a>
+
+

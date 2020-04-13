@@ -1,0 +1,66 @@
+﻿@model Group_5_Hospital_Project.Models.Feedback_Forms
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Feedback Form</h2>
+
+<div class="h3">Are you sure you want to delete this Feedback Form?</div>
+<div>
+    
+    <div class="container border border-primary text-center">
+        <div class="h4">Feedback Form</div>
+
+        @if (User.Identity.Permission() == 3) //if admin, display extra info
+        {
+
+            <div class="row border border-primary">
+                <div class="col">
+                    <div class="container h5">Feedback Form ID</div>
+                    @Html.DisplayFor(model => model.Feedback_Forms_ID)
+                </div>
+                <div class="col">
+                    <div class="container h5">User Email</div>
+                    @Html.DisplayFor(model => model.Feedback_Forms_Email)
+                </div>
+
+                <div class="col">
+                    <div class="container h5">User ID</div>
+                    @Html.DisplayFor(model => model.User.Id)
+                </div>
+            </div>
+        }
+
+        <div class="row border border-primary">
+            <div class="col">
+                <div class="container h5">Rating (out of 5)</div>
+                @Html.DisplayFor(model => model.Feedback_Forms_Rating)
+            </div>
+
+            <div class="col">
+                <div class="container h5">Date</div>
+                @Html.DisplayFor(model => model.Feedback_Forms_Date)
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="container h5">Comments</div>
+                @Html.DisplayFor(model => model.Feedback_Forms_Comment)
+            </div>
+        </div>
+
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "List", "", new {@class="btn btn-primary" })
+        </div>
+    }
+</div>

@@ -27,22 +27,23 @@ namespace Group_5_Hospital_Project.Models
 
         */
 
-
-
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public string Diagnosis { get; set; }
-        public string RoomNumber { get; set; }
+        public int RoomNumber { get; set; }
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
 
-        
+
         //Represents the "many" in (one Patient to many Send Best Wishes Forms)
-        public ICollection<Patient> Patients { get; set; }
+        // public ICollection<Wishes> Wishes { get; set; }
 
-
+        //Represents the many in (one Patient to many Send Best Wishes Forms)        
+        public int WishesID { get; set; }
+        [ForeignKey("WishesID")]
+        public virtual Wishes Wishes { get; set; }
 
     }
 }

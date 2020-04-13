@@ -1,0 +1,35 @@
+﻿@model List<Group_5_Hospital_Project.Models.News>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of News</h2>
+<div class="navbar">
+    <a class="navlink" href="/News/New">Add New</a>
+</div>
+<form method="GET" action="/News/List">
+    <input type="text" id="newssearchkey" name="newssearchkey" />
+    <input type="submit" value="Search" />
+</form>
+
+<div class="tilecontainer">
+    @{
+
+        foreach (var News in Model)
+        {
+            <div class="listitem">
+                <div class="itemdetails">
+                    <div class="listcat"><a href="/News/Show/@News.news_id">@News.news_title</a></div>
+                    <div class="listcat">Date <span>@News.news_date</span></div>
+                    <div class="listcat">Discription <span>@News.news_description</span></div>
+                    @*<span class="cta"><a href="/News/Update/@News.news_id">Update</a></span>*@
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        }
+    }
+    <div style="clear:both;"></div>
+</div>
+
+
+

@@ -9,6 +9,8 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
+using PagedList.Mvc;
+using PagedList;
 
 namespace Group_5_Hospital_Project.Models
 {
@@ -17,10 +19,23 @@ namespace Group_5_Hospital_Project.Models
         private Group_5_Hospital_Project_Context db = new Group_5_Hospital_Project_Context();
 
         //newsletter/List
-        public ActionResult List()
+        public ActionResult List(string search, int? i)
         {
-            List<Newsletter> newsletters = db.Newsletter.SqlQuery("select * from Newsletters").ToList();
-            return View(newsletters);
+            return View(db.Newsletter.Where(n => n.newsletter_title.Contains(search) || n.newsletter_body.Contains(search) || search == null).ToList().ToPagedList(i ?? 1, 10));
+        }
+
+        //adding subscribers to newsletter form of subscribers id =?
+
+        public ActionResult NewsletterSubscriber(int id)
+        {
+            string query = "select * from Newsletter inner join SubscriberNewsletter on " +
+                "Newsletter.newsletter_id = SubscriberNewsletter.Newsletter_NewsletterID " +
+                "where Subscriber_SubscriberID = @id";
+
+            SqlParameter param = new SqlParameter("@id", id);
+            List<Subscriber> NewsletterSubscribers = db.Subscriber.SqlQuery(query, param).ToList();
+
+            return View();
         }
 
 
@@ -66,11 +81,7 @@ namespace Group_5_Hospital_Project.Models
             return RedirectToAction("List");
         }
 
-        // GET: Newsletter
-        public ActionResult SendEmail()
-        {
-            return View();
-        }
+        
 
         public ActionResult Delete(int id)
         {
@@ -92,6 +103,12 @@ namespace Group_5_Hospital_Project.Models
             db.SaveChanges();
 
             return RedirectToAction("List");
+        }
+
+        // GET: Newsletter
+        public ActionResult SendEmail()
+        {
+            return View();
         }
 
         [HttpPost]

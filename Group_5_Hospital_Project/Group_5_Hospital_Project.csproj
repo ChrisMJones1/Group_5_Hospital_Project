@@ -28,6 +28,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,19 +62,23 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -117,6 +122,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -170,29 +176,34 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UserAuthentication.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
-    <Compile Include="Controllers\Career_CandidateController.cs" />
-    <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\Feedback_FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Career_JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\WishesController.cs" />
+    <Compile Include="Controllers\Slideshow.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
+    <Compile Include="Controllers\VolunteersController.cs" />
     <Compile Include="Data\Group_5_Hospital_Project_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004071725283_init.cs" />
-    <Compile Include="Migrations\202004071725283_init.designer.cs">
-      <DependentUpon>202004071725283_init.cs</DependentUpon>
+    <Compile Include="Migrations\202004110304258_init.cs" />
+    <Compile Include="Migrations\202004110304258_init.designer.cs">
+      <DependentUpon>202004110304258_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004091949080_init1.cs" />
-    <Compile Include="Migrations\202004091949080_init1.designer.cs">
-      <DependentUpon>202004091949080_init1.cs</DependentUpon>
+    <Compile Include="Migrations\202004111713517_christine_fix_1.cs" />
+    <Compile Include="Migrations\202004111713517_christine_fix_1.designer.cs">
+      <DependentUpon>202004111713517_christine_fix_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004100412152_init2.cs" />
-    <Compile Include="Migrations\202004100412152_init2.designer.cs">
-      <DependentUpon>202004100412152_init2.cs</DependentUpon>
+    <Compile Include="Migrations\202004122229597_addSubscriberNewsletterViewModel.cs" />
+    <Compile Include="Migrations\202004122229597_addSubscriberNewsletterViewModel.designer.cs">
+      <DependentUpon>202004122229597_addSubscriberNewsletterViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -200,8 +211,12 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
+    <Compile Include="Models\VIewModels\ShowPatient.cs" />
+    <Compile Include="Models\VIewModels\SubscriberNewsletterViewModel.cs" />
+    <Compile Include="Models\VIewModels\UpdatePatient.cs" />
+    <Compile Include="Models\VIewModels\ViewWishes.cs" />
+    <Compile Include="Models\Wishes.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Send_Best_Wishes.cs" />
     <Compile Include="Models\Slideshow.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Feedback_Forms.cs" />
@@ -214,8 +229,6 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Staff_Bios.cs" />
     <Compile Include="Models\Subscriber.cs" />
-    <Compile Include="Models\ViewModels\showCandidates.cs" />
-    <Compile Include="Models\ViewModels\showCareer_Job.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -236,6 +249,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -262,6 +276,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Resources\ShanakaysFiles\Hospital Project-Justifications-ShanakayHall.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -404,21 +419,34 @@
     <Content Include="Views\Subscriber\Show.cshtml" />
     <Content Include="Views\Subscriber\Edit.cshtml" />
     <Content Include="Views\Subscriber\Delete.cshtml" />
-    <Content Include="Views\Donation\list.cshtml" />
-    <Content Include="Views\Donation\show.cshtml" />
-    <Content Include="Views\Donation\add.cshtml" />
-    <Content Include="Views\Donation\update.cshtml" />
-    <Content Include="Views\Donation\DeleteConfirm.cshtml" />
-    <Content Include="Views\Career_Job\List.cshtml" />
-    <Content Include="Views\Career_Job\Add.cshtml" />
-    <Content Include="Views\Career_Job\Show.cshtml" />
-    <Content Include="Views\Career_Job\Update.cshtml" />
-    <Content Include="Views\Career_Job\DeleteConfirm.cshtml" />
-    <Content Include="Views\Career_Candidate\List.cshtml" />
-    <Content Include="Views\Career_Candidate\New.cshtml" />
-    <Content Include="Views\Career_Candidate\Show.cshtml" />
-    <Content Include="Views\Career_Candidate\Update.cshtml" />
-    <Content Include="Views\Career_Candidate\DeleteConfirm.cshtml" />
+    <Content Include="Views\Page\List.cshtml" />
+    <Content Include="Views\Page\New.cshtml" />
+    <Content Include="Views\Page\Show.cshtml" />
+    <Content Include="Views\Page\Edit.cshtml" />
+    <Content Include="Views\Page\Delete.cshtml" />
+    <Content Include="Views\Feedback_Forms\List.cshtml" />
+    <Content Include="Views\Account\LogOff.cshtml" />
+    <Content Include="Views\Feedback_Forms\Add.cshtml" />
+    <Content Include="Views\Volunteers\Create.cshtml" />
+    <Content Include="Views\Volunteers\Delete.cshtml" />
+    <Content Include="Views\Volunteers\Details.cshtml" />
+    <Content Include="Views\Volunteers\Edit.cshtml" />
+    <Content Include="Views\Volunteers\Index.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\Delete.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\Wishes\List.cshtml" />
+    <Content Include="Views\Wishes\New.cshtml" />
+    <Content Include="Views\Wishes\Show.cshtml" />
+    <Content Include="Views\Wishes\Update.cshtml" />
+    <Content Include="Views\Wishes\DeleteConfirm.cshtml" />
+    <Content Include="Views\Patient\List.cshtml" />
+    <Content Include="Views\Patient\New.cshtml" />
+    <Content Include="Views\Patient\Show.cshtml" />
+    <Content Include="Views\Patient\Update.cshtml" />
+    <Content Include="Views\Patient\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -432,18 +460,19 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004071725283_init.resx">
-      <DependentUpon>202004071725283_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004091949080_init1.resx">
-      <DependentUpon>202004091949080_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004100412152_init2.resx">
-      <DependentUpon>202004100412152_init2.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Views\Slideshow\" />
+    <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Job\" />
+    <EmbeddedResource Include="Migrations\202004110304258_init.resx">
+      <DependentUpon>202004110304258_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004111713517_christine_fix_1.resx">
+      <DependentUpon>202004111713517_christine_fix_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004122229597_addSubscriberNewsletterViewModel.resx">
+      <DependentUpon>202004122229597_addSubscriberNewsletterViewModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
