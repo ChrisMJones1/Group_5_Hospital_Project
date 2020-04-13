@@ -7,13 +7,13 @@ namespace Group_5_Hospital_Project.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class addSubscriberNewsletterViewModel : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addSubscriberNewsletterViewModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004122229597_addSubscriberNewsletterViewModel"; }
+            get { return "202004130641084_init"; }
         }
         
         string IMigrationMetadata.Source

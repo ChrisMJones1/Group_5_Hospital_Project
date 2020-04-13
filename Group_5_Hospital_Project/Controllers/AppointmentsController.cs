@@ -43,8 +43,6 @@ namespace Group_5_Hospital_Project.Controllers
         }
 
         // POST: Appointments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Appointment_ID,Appointment_start_time,Appointment_end_time")] Appointment appointment)
@@ -75,8 +73,6 @@ namespace Group_5_Hospital_Project.Controllers
         }
 
         // POST: Appointments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Appointment_ID,Appointment_start_time,Appointment_end_time")] Appointment appointment)
@@ -116,13 +112,5 @@ namespace Group_5_Hospital_Project.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

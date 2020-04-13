@@ -8,17 +8,34 @@ using System.Web;
 using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
 using Group_5_Hospital_Project.Models;
+using Group_5_Hospital_Project.Properties;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Group_5_Hospital_Project.Controllers
 {
     public class VolunteersController : Controller
     {
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
         private Group_5_Hospital_Project_Context db = new Group_5_Hospital_Project_Context();
 
         // GET: Volunteers
         public ActionResult Index()
         {
-            return View(db.Volunteers.ToList());
+            // 0-Guest,1-patient,2-staff,3-admin
+            int permission = UserManager.GetUserPermission();
+            if (permission == Settings.Default.USERTYPE_PATIENT || permission == Settings.Default.USERTYPE_STAFF || permission == Settings.Default.USERTYPE_ADMIN)
+            {
+                // have access
+                return View(db.Volunteers.ToList());
+            }
+            else 
+            {
+                // (permission == Settings.Default.USERTYPE_GUEST)
+                // to login page
+                return Redirect("Account/Login");
+            }
         }
 
         // GET: Volunteers/Details/5
@@ -39,12 +56,22 @@ namespace Group_5_Hospital_Project.Controllers
         // GET: Volunteers/Create
         public ActionResult Create()
         {
-            return View();
+            // staff and admins can create a volunteer posting
+            int permission = UserManager.GetUserPermission();
+            if (permission == Settings.Default.USERTYPE_STAFF || permission == Settings.Default.USERTYPE_ADMIN)
+            {
+                // have access
+                return View();
+            }
+            else
+            {
+                // to Volunteers page
+                // todo: message tells users no access
+                return Redirect("/Volunteers");
+            }
         }
 
         // POST: Volunteers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Volunteer_ID,Volunteer_name,Volunteer_description,Volunteer_start_time,Volunteer_maximum_headcount,Volunteer_applied_headcount")] Volunteer volunteer)
@@ -62,21 +89,31 @@ namespace Group_5_Hospital_Project.Controllers
         // GET: Volunteers/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            // staff and admins can create a volunteer posting
+            int permission = UserManager.GetUserPermission();
+            if (permission == Settings.Default.USERTYPE_STAFF || permission == Settings.Default.USERTYPE_ADMIN)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Volunteer volunteer = db.Volunteers.Find(id);
+                if (volunteer == null)
+                {
+                    return HttpNotFound();
+                }
+                // have access
+                return View(volunteer);
             }
-            Volunteer volunteer = db.Volunteers.Find(id);
-            if (volunteer == null)
+            else
             {
-                return HttpNotFound();
+                // to Volunteers page
+                // todo: message tells users no access
+                return Redirect("/Volunteers");
             }
-            return View(volunteer);
         }
 
         // POST: Volunteers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Volunteer_ID,Volunteer_name,Volunteer_description,Volunteer_start_time,Volunteer_maximum_headcount,Volunteer_applied_headcount")] Volunteer volunteer)
@@ -93,19 +130,31 @@ namespace Group_5_Hospital_Project.Controllers
         // GET: Volunteers/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+
+            // staff and admins can create a volunteer posting
+            int permission = UserManager.GetUserPermission();
+            if (permission == Settings.Default.USERTYPE_STAFF || permission == Settings.Default.USERTYPE_ADMIN)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Volunteer volunteer = db.Volunteers.Find(id);
+                if (volunteer == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(volunteer);
             }
-            Volunteer volunteer = db.Volunteers.Find(id);
-            if (volunteer == null)
+            else
             {
-                return HttpNotFound();
+                // to Volunteers page
+                // todo: message tells users no access
+                return Redirect("/Volunteers");
             }
-            return View(volunteer);
         }
 
-        // POST: Volunteers/Delete/5
+        // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -116,13 +165,29 @@ namespace Group_5_Hospital_Project.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+
+        public ApplicationSignInManager SignInManager
         {
-            if (disposing)
+            get
             {
-                db.Dispose();
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            base.Dispose(disposing);
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
     }
 }
