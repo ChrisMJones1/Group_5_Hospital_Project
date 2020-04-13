@@ -1,4 +1,4 @@
-﻿
+﻿@model Group_5_Hospital_Project.Models.VIewModels.SubscriberNewsletterViewModel
 @{
     ViewBag.Title = "SendEmail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,23 +12,25 @@
     <h2> @ViewBag.Error </h2>  
 } 
 <form method="post" action="SendEmail"> 
-    <div class="container"> 
-        <span class="form-control-static"> Receiver: </span> 
-        <input class="form-control" type ="text" name="receiver"/> 
+    <div class="container">
+        <span class="form-control-static"> Receiver: </span>
+        <input class="form-control" type="text" name="receiver" />
 
-        <br /> 
+        <br />
 
         <span class="form-control-static"> Subject: </span>
-        <input class="form-control" type="text" name="subject"/> 
+        <input class="form-control" type="text" name="subject" />
 
-        <br /> 
+        <br />
 
-        <span class="form-control-static"> Message: </span> 
-        <input class="form-control" type="text" name="message" /> 
+        <span class="form-control-static"> Message: </span>
+        <input class="form-control" type="text" name="message" />
 
-        <br /> 
+        <br />
 
-        <input class="btn btn-primary" type ="submit" value="Send" /> 
+        <input class="btn btn-primary" type="submit" value="Send" />
     </div> 
 </form>  
+
+
 

@@ -12,7 +12,10 @@
 <h2>List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "New")
+    @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2)
+    {
+        @Html.ActionLink("Create New", "New")
+    }
 
     @using (Html.BeginForm("List", "Subscriber", FormMethod.Get))
     {
@@ -43,11 +46,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.subscriber_email)
                 </td>
-                <td>
+                @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2)
+                {
+                    <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.subscriber_id }) |
                     @Html.ActionLink("Details", "Show", new { id = item.subscriber_id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.subscriber_id })
-                </td>
+                    </td>
+                }
+                
             </tr>
         }
     }

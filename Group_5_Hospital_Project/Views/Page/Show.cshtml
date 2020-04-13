@@ -8,36 +8,35 @@
 <h2>Show</h2>
 
 <div>
-    <h4>Page</h4>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.content_title)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.content_title)
+            <h1>@Html.DisplayFor(model => model.content_title)</h1>
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.content_body)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.content_body)
+            <span style="white-space: pre-line">
+                
+                @Html.DisplayFor(model => model.content_body)
+            </span>
+            
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.DateTime)
+            <div class="small" style="color:grey;">
+                <span>Posted on </span>@Html.DisplayFor(model => model.DateTime)
+            </div>
+            
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "List")
+    @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) <p> | </p>
+        @Html.ActionLink("Back to List", "List")
+    }
+
+
+
 </p>

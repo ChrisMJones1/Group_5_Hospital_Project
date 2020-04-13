@@ -12,7 +12,12 @@
 <h2>List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "New")
+
+    @if (User.Identity.Permission() == 3) //Is admin or staff
+    {
+        @Html.ActionLink("Create New", "New")
+    }
+
 
     @using (Html.BeginForm("List", "Page", FormMethod.Get))
     {
@@ -46,7 +51,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => page.content_title)
+                    <a href="Show/@page.id" style="text-decoration: none; font-weight: bold;">@page.content_title</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => page.content_body)
@@ -54,11 +59,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => page.DateTime)
                 </td>
+                @if (User.Identity.Permission() == 3 || User.Identity.Permission() == 2) //Is admin or staff
+                {
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = page.id }) |
                     @Html.ActionLink("Details", "Show", new { id = page.id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = page.id })
                 </td>
+                }
             </tr>
         }
     }
