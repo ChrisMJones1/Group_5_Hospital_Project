@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Group_5_Hospital_Project.Data;
 using Group_5_Hospital_Project.Models;
+using Group_5_Hospital_Project.Models.VIewModels;
 using Group_5_Hospital_Project.Properties;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using PagedList;
 
 namespace Group_5_Hospital_Project.Controllers
 {
@@ -21,16 +24,17 @@ namespace Group_5_Hospital_Project.Controllers
         private Group_5_Hospital_Project_Context db = new Group_5_Hospital_Project_Context();
 
         // GET: Volunteers
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             // 0-Guest,1-patient,2-staff,3-admin
             int permission = UserManager.GetUserPermission();
             if (permission == Settings.Default.USERTYPE_PATIENT || permission == Settings.Default.USERTYPE_STAFF || permission == Settings.Default.USERTYPE_ADMIN)
             {
                 // have access
-                return View(db.Volunteers.ToList());
+                IPagedList<Volunteer> query = db.Volunteers.ToList().ToPagedList(page ?? 1, 3);
+                return View(query);
             }
-            else 
+            else
             {
                 // (permission == Settings.Default.USERTYPE_GUEST)
                 // to login page
@@ -41,16 +45,25 @@ namespace Group_5_Hospital_Project.Controllers
         // GET: Volunteers/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            int permission = UserManager.GetUserPermission();
+            if (permission == Settings.Default.USERTYPE_PATIENT || permission == Settings.Default.USERTYPE_STAFF || permission == Settings.Default.USERTYPE_ADMIN)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Volunteer volunteer = db.Volunteers.Find(id);
+                if (volunteer == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(volunteer);
             }
-            Volunteer volunteer = db.Volunteers.Find(id);
-            if (volunteer == null)
+            else
             {
-                return HttpNotFound();
+                return Redirect("/Volunteers");
             }
-            return View(volunteer);
         }
 
         // GET: Volunteers/Create
@@ -165,6 +178,84 @@ namespace Group_5_Hospital_Project.Controllers
             return RedirectToAction("Index");
         }
 
+
+        // GET: Volunteers/Apply/5
+        public ActionResult Apply(int? id)
+        {
+            // todo : viewmodel
+            // users(patient) can apply for a volunteer job
+            int permission = UserManager.GetUserPermission();
+            if (permission == Settings.Default.USERTYPE_PATIENT)
+            {
+                // there should be an id
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                // current user id
+                string currentUserId = User.Identity.GetUserId();
+                // get current user
+                ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+
+                // select from volunteers table and users table?
+                string query = "insert into VolunteerApplicationUsers " +
+                    "(Volunteer_Volunteer_ID, ApplicationUser_Id) " +
+                    "values (@Volunteer_Volunteer_ID, @ApplicationUser_Id)";
+
+                SqlParameter[] sqlparams = new SqlParameter[2];
+                sqlparams[0] = new SqlParameter("@Volunteer_Volunteer_ID", id);
+                sqlparams[1] = new SqlParameter("@ApplicationUser_Id", currentUserId);
+
+                // execute
+                try
+                {
+                    db.Database.ExecuteSqlCommand(query, sqlparams);
+                }
+                catch (Exception ex)
+                {
+                    // let's assume that the exception is "duplicate"
+                    // can't really alert here without going to /Apply/id page. i am dying.
+                    Response.Write("<script>alert('you have already applied for this volunteer position!!')</script>");
+                    //Response.Redirect("/Volunteers");
+                    return RedirectToAction("/");
+
+                    throw ex;
+                }
+
+                //var Volunteer = db.Volunteers.SqlQuery(query).ToList();
+                //var viewModel = new VolunteersViewModel()
+                //{
+                //    Users = currentUser,
+                //    Volunteer = Volunteer
+                //};
+
+                // added
+                //Response.Write("<script>alert('applied')</script>");
+                //Response.End();
+                return RedirectToAction("/");
+            }
+            else
+            {
+                // to Volunteers page
+                // todo: message tells users no access
+                return Redirect("/");
+            }
+        }
+
+        // POST: Volunteers/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Apply([Bind(Include = "Volunteer_ID,Volunteer_name,Volunteer_description,Volunteer_start_time,Volunteer_maximum_headcount,Volunteer_applied_headcount")] Volunteer volunteer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(volunteer).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(volunteer);
+        }
 
         public ApplicationSignInManager SignInManager
         {
