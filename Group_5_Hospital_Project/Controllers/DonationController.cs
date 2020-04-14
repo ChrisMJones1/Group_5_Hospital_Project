@@ -20,7 +20,7 @@ namespace Group_5_Hospital_Project.Models
         {
             return View();
         }
-        // to provide the list of the donations to list link and also to add the search functionality for the donations
+        // to provide the list of the donations to list link and also to add the search functionality and pagination for the donations
         public ActionResult list(string donationsearchkey, int pagenum = 0)
         {
             Debug.WriteLine("The parameter is " + donationsearchkey);

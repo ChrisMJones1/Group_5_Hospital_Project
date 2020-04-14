@@ -21,12 +21,13 @@
     {
         <div class="listitem">
             <div><a href="/Career_Candidate/Show/@Career_Candidate.candidate_id">@Career_Candidate.candidate_name</a></div><!-- link to go to the details of the candidate-->
-            <div>Payment Type: @Career_Candidate.candidate_email</div>
-            <div>candidate Date: @Career_Candidate.candidate_phone</div>
-            <div>candidate Cost: @Career_Candidate.candidate_jobtype</div>
+            <div>Candidate email: @Career_Candidate.candidate_email</div>
+            <div>Candidate phone: @Career_Candidate.candidate_phone</div>
+            <div>Candidate type: @Career_Candidate.candidate_jobtype</div>
         </div>
     }
 </div>
+<!--to apply pagination to the page-->
 <div class="paginate">
     @{
         <a href="/Career_Candidate/List?pagenum=@((int)ViewData["pagenum"]-1)&candidatesearchkey=@ViewData["candidatesearchkey"]">Prev</a>

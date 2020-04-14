@@ -2,7 +2,8 @@
 
 Group Members:
 Christopher Jones (N01352022)
-Raymiljit Kaur(N01356496)
+| Raymiljit Kaur(N01356496)
+| Mel Jason Chong Wo Yuen (N01355438)
 
 
 **Christopher Jones' Contributions:**  
@@ -70,6 +71,28 @@ Additional Duties Performed:
    - LAB WORK Folder:
      - Donation and Career feature (lab Work)-Raymiljit Kaur(n01356496).pdf
      
+**Mel Jason Chong Wo Yuen' Contributions:**  
+
+Files created for this project:
+ - Controller Folder:
+   - Newsletterontroller.cs
+   - AlertController.cs
+   - SubscriberController.cs
+   - PageController.cs
+ 
+ - Models Folder
+   - Alert.cs
+   - Newsletter.cs
+   - Page.cs
+   - Subscriber.cs  
+    ViewModels
+      - SubscriberNewsletterViewModel.cs
+     
+ - Views Folder
+   - Alert (CRUD)
+   - Newsletter (CRUD) + SendEmail.cshtml
+   - Page (CRUD)
+   - Subscriber (CRUD)
      
    
      

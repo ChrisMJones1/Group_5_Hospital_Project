@@ -36,6 +36,11 @@ namespace Group_5_Hospital_Project.Controllers
             //list of candidates
             List<Career_Candidate> career_Candidates = db.Career_Candidates.SqlQuery(query).ToList();
             //returning the candidates list
+
+            //code for pagination
+            //here we define number of enteries per page
+            //then check if it exceeds limit
+            //enteries should be moved to next page
             int perpage = 3;
             int candidatecount = career_Candidates.Count();
             int maxpage = (int)Math.Ceiling((decimal)candidatecount / perpage) - 1;
@@ -61,6 +66,7 @@ namespace Group_5_Hospital_Project.Controllers
                 Debug.WriteLine(pagedquery);
                 Debug.WriteLine("offset " + start);
                 Debug.WriteLine("fetch first " + perpage);
+                //end of the pagination code
                 career_Candidates = db.Career_Candidates.SqlQuery(pagedquery, newparams.ToArray()).ToList();
             }
 
@@ -90,7 +96,7 @@ namespace Group_5_Hospital_Project.Controllers
             return RedirectToAction("List");//sending the data for addition to database
         }
 
-        // functionality to show the candidates along with option to add and remove job for that particular candidate placed.
+        // functionality to show the candidates along with option to add and remove job for that particular candidate who is applying for jobs.
         public ActionResult Show(int id)
         {
             //here we are selecting one particular candidate for particular id.
@@ -98,15 +104,15 @@ namespace Group_5_Hospital_Project.Controllers
             var pk_parameter = new SqlParameter("@id", id);
             Career_Candidate career_Candidate = db.Career_Candidates.SqlQuery(main_query, pk_parameter).FirstOrDefault();
 
-            //here we are getting data from job table where the job id is referred by the candidate table
+            //here we are getting data from job table where the job id is referred by the candidate table using bridging table.
             string aside_query = "select * from Career_Job inner join Career_JobCareer_Candidate on Career_Job.job_id = Career_JobCareer_Candidate.Career_Job_job_id where Career_JobCareer_Candidate.Career_Candidate_candidate_id=@id";
             var fk_parameter = new SqlParameter("@id", id);
             List<Career_Job> jobs = db.Career_Jobs.SqlQuery(aside_query, fk_parameter).ToList();
-            // here we filling the drop down to add more job which are not added yet
+            // here we filling the drop down to add more job which arenot yet applied by candidate
             string all_Career_Jobs_query = "select * from Career_Job";
             List<Career_Job> Alljobs = db.Career_Jobs.SqlQuery(all_Career_Jobs_query).ToList();
 
-            //using viewmodel for showing candidates
+            //using viewmodel for showing candidates and all the available jobs.
             showCandidates viewmodel = new showCandidates();
             viewmodel.Career_Candidate = career_Candidate;
             viewmodel.Career_Jobs = jobs;
