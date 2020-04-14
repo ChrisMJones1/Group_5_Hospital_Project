@@ -6,6 +6,7 @@ Christopher Jones (N01352022)
 | Mel Jason Chong Wo Yuen (N01355438)
 | Krinaben Patel(N01331772)
 | Tianyi Zhang(N01378530)
+| Shanakay Hall (N01119610)
 
 
 **Christopher Jones' Contributions:**  
@@ -145,6 +146,26 @@ Files created for this project:
    - TianyiZhang_N01378530_Documentation (Documentations)
    
 
-     
+**Shankay Hall's Contributions:**  
+
+   Files created for this project:
    
+ - Controllers Folder:
+   - WishesController.cs
+   - PatientController.cs
+ 
+ - Models Folder
+   - Wishes.cs
+   - Patient.cs
+   - ViewModels
+      - ShowPatient.cs
+      - UpdatePatient.cs
+      - ViewWishes.cs
+     
+ - Views Folder
+   - Patients (CRUD)
+   - Wishes (CRUD)
+  
+ - Resources Folder
+   - ShanakaysFiles (Documentation)
      
