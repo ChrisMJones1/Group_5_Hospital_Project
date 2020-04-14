@@ -84,8 +84,8 @@ Files created for this project:
    - Alert.cs
    - Newsletter.cs
    - Page.cs
-   - Subscriber.cs
-     ViewModels
+   - Subscriber.cs  
+    ViewModels
       - SubscriberNewsletterViewModel.cs
      
  - Views Folder
