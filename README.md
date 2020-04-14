@@ -4,6 +4,7 @@ Group Members:
 Christopher Jones (N01352022)
 | Raymiljit Kaur(N01356496)
 | Mel Jason Chong Wo Yuen (N01355438)
+Krinaben Patel(N01331772)
 
 
 **Christopher Jones' Contributions:**  
@@ -96,6 +97,32 @@ Files created for this project:
   
  - Resources Folder
    - MelJasonChongWoYuen_N01355438_Documentation (Documentations)
+   
+   
+        
+**Krinaben Patel' Contributions:** 
+ Files created for this project:
+   
+    Views Folder:
+        News (CRUD)
+       Find_Doctor (CRUD)
+       
+    Context folder:
+        Group_5_Hospital_Project_Context.cs(creating News and Find a doctor feature)
+
+    Models Folder:
+        News.cs
+        Find_Doctor.cs
+  
+    Controller Folder:
+        NewsController.cs
+        Find_DoctorController.cs
+       
+      
+    Resources Folder
+        KrinabenPatel(N01331772)-Document.pdf --->(Labwork)
+   
+
      
    
      
