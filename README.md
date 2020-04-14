@@ -5,6 +5,7 @@ Christopher Jones (N01352022)
 | Raymiljit Kaur(N01356496)
 | Mel Jason Chong Wo Yuen (N01355438)
 | Krinaben Patel(N01331772)
+| Tianyi Zhang(N01378530)
 
 
 **Christopher Jones' Contributions:**  
@@ -121,6 +122,27 @@ Files created for this project:
       
     Resources Folder
         KrinabenPatel(N01331772)-Document.pdf --->(Labwork)
+        
+        
+**Tianyi Zhang's Contributions:**  
+
+Files created for this project:
+ - Controller Folder:
+   - VolunteersController.cs
+   - AppointmentsController.cs
+ 
+ - Models Folder
+   - Appointment.cs
+   - Volunteer.cs
+    ViewModels
+      - VolunteersViewModel.cs
+     
+ - Views Folder
+   - Appointments (CRUD)
+   - Volunteers (CRUD)
+  
+ - Resources Folder
+   - TianyiZhang_N01378530_Documentation (Documentations)
    
 
      
