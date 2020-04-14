@@ -93,6 +93,9 @@ Files created for this project:
    - Newsletter (CRUD) + SendEmail.cshtml
    - Page (CRUD)
    - Subscriber (CRUD)
+  
+ - Resources Folder
+   - MelJasonChongWoYuen_N01355438_Documentation (Documentations)
      
    
      
