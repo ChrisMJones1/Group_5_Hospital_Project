@@ -180,11 +180,17 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\Career_CandidateController.cs" />
+    <Compile Include="Controllers\Career_JobController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\Feedback_FormsController.cs" />
+    <Compile Include="Controllers\Find_DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\Staff_BiosController.cs" />
     <Compile Include="Controllers\WishesController.cs" />
     <Compile Include="Controllers\Slideshow.cs" />
     <Compile Include="Controllers\SubscriberController.cs" />
@@ -193,6 +199,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\IdentityExtensions.cs" />
     <Compile Include="Migrations\202004132005562_init.cs" />
     <Compile Include="Migrations\202004132005562_init.designer.cs">
       <DependentUpon>202004132005562_init.cs</DependentUpon>
@@ -203,6 +210,8 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
+    <Compile Include="Models\VIewModels\showCandidates.cs" />
+    <Compile Include="Models\VIewModels\showCareer_Job.cs" />
     <Compile Include="Models\VIewModels\ShowPatient.cs" />
     <Compile Include="Models\VIewModels\VolunteersViewModel.cs" />
     <Compile Include="Models\VIewModels\SubscriberNewsletterViewModel.cs" />
@@ -249,6 +258,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -275,6 +285,10 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Resources\ShanakaysFiles\Hospital Project-Justifications-ShanakayHall.pdf" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="LAB WORK\Donation and Career feature %28lab Work%29-Raymiljit Kaur%28n01356496%29.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -449,6 +463,31 @@
     <Content Include="Views\Patient\Show.cshtml" />
     <Content Include="Views\Patient\Update.cshtml" />
     <Content Include="Views\Patient\DeleteConfirm.cshtml" />
+    <Content Include="Views\Career_Candidate\DeleteConfirm.cshtml" />
+    <Content Include="Views\Career_Candidate\List.cshtml" />
+    <Content Include="Views\Career_Candidate\New.cshtml" />
+    <Content Include="Views\Career_Candidate\Show.cshtml" />
+    <Content Include="Views\Career_Candidate\Update.cshtml" />
+    <Content Include="Views\Career_Job\Add.cshtml" />
+    <Content Include="Views\Career_Job\DeleteConfirm.cshtml" />
+    <Content Include="Views\Career_Job\List.cshtml" />
+    <Content Include="Views\Career_Job\Show.cshtml" />
+    <Content Include="Views\Career_Job\Update.cshtml" />
+    <Content Include="Views\Donation\add.cshtml" />
+    <Content Include="Views\Donation\DeleteConfirm.cshtml" />
+    <Content Include="Views\Donation\list.cshtml" />
+    <Content Include="Views\Donation\show.cshtml" />
+    <Content Include="Views\Donation\update.cshtml" />
+    <Content Include="Views\Find_Doctor\DeleteConfirm.cshtml" />
+    <Content Include="Views\Find_Doctor\List.cshtml" />
+    <Content Include="Views\Find_Doctor\New.cshtml" />
+    <Content Include="Views\Find_Doctor\Show.cshtml" />
+    <Content Include="Views\Find_Doctor\Update.cshtml" />
+    <Content Include="Views\News\DeleteConfirm.cshtml" />
+    <Content Include="Views\News\List.cshtml" />
+    <Content Include="Views\News\New.cshtml" />
+    <Content Include="Views\News\Show.cshtml" />
+    <Content Include="Views\News\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -462,6 +501,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Slideshow\" />
     <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
