@@ -193,10 +193,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\IdentityExtensions.cs" />
-    <Compile Include="Migrations\202004130641084_init.cs" />
-    <Compile Include="Migrations\202004130641084_init.designer.cs">
-      <DependentUpon>202004130641084_init.cs</DependentUpon>
+    <Compile Include="Migrations\202004132005562_init.cs" />
+    <Compile Include="Migrations\202004132005562_init.designer.cs">
+      <DependentUpon>202004132005562_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -276,13 +275,10 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Resources\ShanakaysFiles\Hospital Project-Justifications-ShanakayHall.pdf" />
-    <Content Include="LAB WORK\Donation and Career feature %28lab Work%29-Raymiljit Kaur%28n01356496%29.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Resources\ChristopherJones_N01352022_Documentation\ChrisJ_ERDs.pdf" />
-    <Content Include="Resources\ChristopherJones_N01352022_Documentation\ChrisJ_Wireframes_and_Documentation.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -470,8 +466,8 @@
     <Folder Include="Views\Staff_Bios\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004130641084_init.resx">
-      <DependentUpon>202004130641084_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004132005562_init.resx">
+      <DependentUpon>202004132005562_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
