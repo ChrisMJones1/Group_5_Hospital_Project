@@ -81,18 +81,18 @@ Files created for this project:
    - PageController.cs
  
  - Models Folder
-  - Alert.cs
-  - Newsletter.cs
-  - Page.cs
-  - Subscriber.cs
-    ViewModels
-     - SubscriberNewsletterViewModel.cs
+   - Alert.cs
+   - Newsletter.cs
+   - Page.cs
+   - Subscriber.cs
+     ViewModels
+      - SubscriberNewsletterViewModel.cs
      
  - Views Folder
-  - Alert (CRUD)
-  - Newsletter (CRUD) + SendEmail.cshtml
-  - Page (CRUD)
-  - Subscriber (CRUD)
+   - Alert (CRUD)
+   - Newsletter (CRUD) + SendEmail.cshtml
+   - Page (CRUD)
+   - Subscriber (CRUD)
      
    
      
