@@ -1,0 +1,27 @@
+﻿@model Group_5_Hospital_Project.Models.VIewModels.SubscriberNewsletterViewModel
+
+@{
+    ViewBag.Title = "NewsletterSubscriber";
+}
+
+<h2>NewsletterSubscriber</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Newsletter</h4>
+        <hr />
+       @Model.subscribers
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
