@@ -2,6 +2,7 @@
 
 Group Members:
 Christopher Jones (N01352022)
+Raymiljit Kaur(N01356496)
 
 
 **Christopher Jones' Contributions:**  
@@ -45,4 +46,30 @@ Additional Duties Performed:
   - Created primary readme template for other members to use.
   
 
+   **Raymiljit Kaur Contributions:** 
+   Files created for this project:
    
+   - Views Folder:
+     - Career_Candidate (CRUD)
+     - Career_Job (CRUD)
+     - Donation (CRUD)
+     
+   - Context folder:
+     - Group_5_Hospital_Project_Context.cs(creating career and donation feature)
+    
+   - Models Folder:
+     - Career_Candidate.cs
+     - Career_Job.cs
+     - Donation.cs
+     - showCandidates.cs
+     - showCareer_Job.cs
+     
+   - Content Folder:
+     - site.css
+     
+   - LAB WORK Folder:
+     - Donation and Career feature (lab Work)-Raymiljit Kaur(n01356496).pdf
+     
+     
+   
+     
