@@ -134,7 +134,7 @@ Files created for this project:
  - Models Folder
    - Appointment.cs
    - Volunteer.cs
-    ViewModels
+   - ViewModels
       - VolunteersViewModel.cs
      
  - Views Folder
