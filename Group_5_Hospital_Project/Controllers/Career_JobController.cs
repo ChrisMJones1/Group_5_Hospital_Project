@@ -39,7 +39,7 @@ namespace Group_5_Hospital_Project.Controllers
             // to get the list
             List<Career_Job> career_Jobs = db.Career_Jobs.SqlQuery(query).ToList();
 
-
+            //pagination code starts from here
             int perpage = 3;
             int jobcount = career_Jobs.Count();
             int maxpage = (int)Math.Ceiling((decimal)jobcount / perpage) - 1;
@@ -65,6 +65,7 @@ namespace Group_5_Hospital_Project.Controllers
                 Debug.WriteLine(pagedquery);
                 Debug.WriteLine("offset " + start);
                 Debug.WriteLine("fetch first " + perpage);
+                //end of pagination code.
                 career_Jobs = db.Career_Jobs.SqlQuery(pagedquery, newparams.ToArray()).ToList();
             }
 
