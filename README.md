@@ -2,8 +2,8 @@
 
 Group Members:
 Christopher Jones (N01352022)
-Raymiljit Kaur(N01356496)
-Mel Jason Chong Wo Yuen (N01355438)
+| Raymiljit Kaur(N01356496)
+| Mel Jason Chong Wo Yuen (N01355438)
 
 
 **Christopher Jones' Contributions:**  
