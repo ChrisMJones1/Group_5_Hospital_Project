@@ -33,7 +33,7 @@ namespace Group_5_Hospital_Project.Controllers
                 // have access
                 IPagedList<Volunteer> query = db.Volunteers.ToList().ToPagedList(page ?? 1, 3);
                 return View(query);
-            }
+            } 
             else
             {
                 // (permission == Settings.Default.USERTYPE_GUEST)
