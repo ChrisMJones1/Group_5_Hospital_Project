@@ -200,19 +200,24 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\IdentityExtensions.cs" />
+    <Compile Include="Migrations\202004162202208_init.cs" />
+    <Compile Include="Migrations\202004162202208_init.designer.cs">
+      <DependentUpon>202004162202208_init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Career_Candidate.cs" />
     <Compile Include="Models\Career_Jobs.cs" />
-    <Compile Include="Models\VIewModels\showCandidates.cs" />
-    <Compile Include="Models\VIewModels\showCareer_Job.cs" />
-    <Compile Include="Models\VIewModels\ShowPatient.cs" />
-    <Compile Include="Models\VIewModels\VolunteersViewModel.cs" />
-    <Compile Include="Models\VIewModels\SubscriberNewsletterViewModel.cs" />
-    <Compile Include="Models\VIewModels\UpdatePatient.cs" />
-    <Compile Include="Models\VIewModels\ViewWishes.cs" />
+    <Compile Include="Models\ViewModels\AddBio.cs" />
+    <Compile Include="Models\ViewModels\showCandidates.cs" />
+    <Compile Include="Models\ViewModels\showCareer_Job.cs" />
+    <Compile Include="Models\ViewModels\ShowPatient.cs" />
+    <Compile Include="Models\ViewModels\SubscriberNewsletterViewModel.cs" />
+    <Compile Include="Models\ViewModels\UpdatePatient.cs" />
+    <Compile Include="Models\ViewModels\ViewWishes.cs" />
+    <Compile Include="Models\ViewModels\VolunteersViewModel.cs" />
     <Compile Include="Models\Wishes.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Slideshow.cs" />
@@ -502,6 +507,11 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Slideshow\" />
     <Folder Include="Views\Staff_Bios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004162202208_init.resx">
+      <DependentUpon>202004162202208_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
