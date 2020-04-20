@@ -8,7 +8,7 @@
 @using PagedList.Mvc;
 @using PagedList;
 
-<h2>Index</h2>
+    <h2>Volunteers</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,18 +19,17 @@
             @Html.DisplayNameFor(list => Model.First().Volunteer_name)
         </th>
         <th>
-            @Html.DisplayNameFor(list => Model.First().Volunteer_description)
-        </th>
-        <th>
             @Html.DisplayNameFor(list => Model.First().Volunteer_start_time)
         </th>
         <th>
-            @Html.DisplayNameFor(list => Model.First().Volunteer_maximum_headcount)
+            @*@Html.DisplayNameFor(list => Model.First().Volunteer_maximum_headcount)*@
+            People Needed
         </th>
         <th>
-            @Html.DisplayNameFor(list => Model.First().Volunteer_applied_headcount)
+            @*@Html.DisplayNameFor(list => Model.First().Volunteer_applied_headcount)*@
+            People Applied
         </th>
-        <th></th>
+        <th>Operations</th>
     </tr>
 
     @if (Model.Count() == 0)
@@ -47,9 +46,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Volunteer_name)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Volunteer_description)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Volunteer_start_time)
                 </td>
@@ -60,10 +59,10 @@
                     @Html.DisplayFor(modelItem => item.Volunteer_applied_headcount)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Volunteer_ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Volunteer_ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Volunteer_ID }) |
-                    @Html.ActionLink("Apply", "Apply", new { id = item.Volunteer_ID })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Volunteer_ID }, new { @class = "btn btn-dark"}) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Volunteer_ID }, new { @class = "btn btn-dark"}) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Volunteer_ID }, new { @class = "btn btn-dark"}) |
+                    @Html.ActionLink("Apply", "Apply", new { id = item.Volunteer_ID }, new { @class = "btn btn-dark"})
                 </td>
             </tr>
         }
