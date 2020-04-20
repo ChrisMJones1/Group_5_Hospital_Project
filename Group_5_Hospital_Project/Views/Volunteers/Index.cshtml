@@ -11,7 +11,7 @@
     <h2>Volunteers</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-dark"})
 </p>
 <table class="table">
     <tr>
@@ -70,4 +70,4 @@
 
 </table>
 
-@Html.PagedListPager(Model, i => Url.Action("List", "Volunteer", new { i }))
+@*@Html.PagedListPager(Model, i => Url.Action("List", "Volunteer", new { i }))*@
